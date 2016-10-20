@@ -110,12 +110,7 @@ test:
     # entry points work.
 
     - pmg --help
-    - feff_input_generation --help
-    - feff_plot_cross_section --help
-    - feff_plot_dos --help
     - gaussian_analyzer --help
-    - get_environment --help
-    - pydii --help
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
