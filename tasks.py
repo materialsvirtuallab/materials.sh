@@ -28,7 +28,7 @@ def build_conda_noarch(ctx):
 @task
 def build_conda_platform(ctx):
     with cd("conda-skeletons/platform"):
-        for pkg in ["pymatgen"]:
+        for pkg in ["spglib", "pymatgen"]:
             # Py35 versions
             ctx.run("conda build %s" % pkg)
             fnames = glob.glob(os.path.expanduser(
