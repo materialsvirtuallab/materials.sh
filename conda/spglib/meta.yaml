@@ -1,0 +1,64 @@
+package:
+  name: spglib
+  version: "1.9.7.1"
+
+source:
+  fn: spglib-1.9.7.1.tar.gz
+  url: https://pypi.python.org/packages/ba/cc/145ece6a314c2b953e120e6c500facc2af4d32bf8445b8c713af1ad984b3/spglib-1.9.7.1.tar.gz
+  md5: 4c54007d9c5f289807da41560232b79c
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - spglib = spglib:main
+    #
+    # Would create an entry point called spglib that calls spglib.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+
+  run:
+    - python
+    - numpy
+
+test:
+  # Python imports
+  imports:
+    - spglib
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://atztogo.github.io/spglib/
+  license: BSD
+  summary: 'This is the spglib module.'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

@@ -1,0 +1,93 @@
+package:
+  name: pybtex
+  version: "0.20.1"
+
+source:
+  fn: pybtex-0.20.1.tar.bz2
+  url: https://pypi.python.org/packages/32/e8/85667af5baff772af58b59024d4a307f208d5ab8e694cca568f55530ed72/pybtex-0.20.1.tar.bz2
+  md5: 7d7badd28afe6115feb45afefa2f9f8c
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  noarch_python: True
+  preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - pybtex = pybtex:main
+    #
+    # Would create an entry point called pybtex that calls pybtex.main()
+
+    - pybtex = pybtex.__main__:main
+    - pybtex-convert = pybtex.database.convert.__main__:main
+    - pybtex-format = pybtex.database.format.__main__:main
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pyyaml >=3.01
+    - latexcodec >=1.0.2
+
+  run:
+    - python
+    - setuptools
+    - pyyaml >=3.01
+    - latexcodec >=1.0.2
+
+test:
+  # Python imports
+  imports:
+    - custom_fixers
+    - pybtex
+    - pybtex.backends
+    - pybtex.bibtex
+    - pybtex.charwidths
+    - pybtex.database
+    - pybtex.database.convert
+    - pybtex.database.format
+    - pybtex.database.input
+    - pybtex.database.output
+    - pybtex.markup
+    - pybtex.plugin
+    - pybtex.style
+    - pybtex.style.formatting
+    - pybtex.style.labels
+    - pybtex.style.names
+    - pybtex.style.sorting
+    - pybtex.tests
+    - pybtex.tests.bst_parser_test
+    - pybtex.tests.data
+    - pybtex.tests.database_test
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - pybtex --help
+    - pybtex-convert --help
+    - pybtex-format --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://pybtex.org/
+  license: MIT License
+  summary: 'A BibTeX-compatible bibliography processor in Python'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
