@@ -1,0 +1,26 @@
+package:
+  name: bader
+  version: "0.9.5"
+
+source:
+  url: http://theory.cm.utexas.edu/henkelman/code/bader/download/bader.tar.gz
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  script_env:
+   - TMPDIR
+   - LD_LIBRARY_PATH # [linux]
+   - DYLD_LIBRARY_PATH # [osx]
+
+test:
+# commands we want to make sure they work, which are expected to get installed
+# by the package
+    commands:
+        - bader -h
+
+about:
+    home: http://theory.cm.utexas.edu/henkelman/code/bader
+    license: MIT
+    summary: Bader charge analysis library of the Henkelman group
