@@ -1,0 +1,23 @@
+package:
+  name: symlib
+
+source:
+  git_url: https://github.com/msg-byu/symlib.git
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+requirements:
+  build:
+    - gcc # [linux]
+
+#test:
+## commands we want to make sure they work, which are expected to get installed
+## by the package
+#  commands:
+#    - bader -h
+
+about:
+  home: https://github.com/msg-byu/symlib.git
+  license: MIT
+  summary: symlib
