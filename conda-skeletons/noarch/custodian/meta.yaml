@@ -1,0 +1,76 @@
+package:
+  name: custodian
+  version: "1.0.3"
+
+source:
+  fn: custodian-1.0.3.tar.gz
+  url: https://pypi.python.org/packages/7e/8d/8b5e3092e03b2e0ed685a5d3cabf40d6349197398718f810c39bcff5375a/custodian-1.0.3.tar.gz
+  md5: 2bc54f94d4c6d2aac9fd59b7f8948fd8
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  noarch_python: True
+  # preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - custodian = custodian:main
+    #
+    # Would create an entry point called custodian that calls custodian.main()
+
+    - cstdn = custodian.cli.cstdn:main
+    - run_vasp = custodian.cli.run_vasp:main
+    - run_nwchem = custodian.cli.run_nwchem:main
+    - converge_kpoints = custodian.cli.converge_kpoints:main
+    - converge_geometry = custodian.cli.converge_geometry:main
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - monty >=0.9.0
+    - six
+    - pyyaml >=3.12
+
+  run:
+    - python
+    - monty >=0.9.0
+    - six
+    - pyyaml >=3.12
+
+test:
+  # Python imports
+  imports:
+    - custodian
+    - custodian.ansible
+    - custodian.cli
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - cstdn --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/materialsproject/custodian
+  license: MIT License
+  summary: 'A simple JIT job management framework in Python.'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
