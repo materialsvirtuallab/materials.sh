@@ -8,19 +8,17 @@ source:
    # List any patch files here
    # - fix.patch
 
-build:
-  script_env:
-   - TMPDIR
-   - LD_LIBRARY_PATH # [linux]
-   - DYLD_LIBRARY_PATH # [osx]
+requirements:
+  build:
+    - gcc # [linux]
 
 test:
 # commands we want to make sure they work, which are expected to get installed
 # by the package
-    commands:
-        - bader -h
+  commands:
+    - bader -h
 
 about:
-    home: http://theory.cm.utexas.edu/henkelman/code/bader
-    license: MIT
-    summary: Bader charge analysis library of the Henkelman group
+  home: http://theory.cm.utexas.edu/henkelman/code/bader
+  license: MIT
+  summary: Bader charge analysis library of the Henkelman group
