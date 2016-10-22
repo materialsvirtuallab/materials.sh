@@ -16,10 +16,11 @@ __date__ = "Sep 1, 2014"
 
 @task
 def build_conda_noarch(ctx):
-    with cd("conda-skeletons/noarch"):
+    with cd(os.path.join("conda-skeletons", "noarch")):
         for pkg in os.listdir():
             ctx.run("conda build %s" % pkg)
-            fnames = glob.glob(os.path.expanduser("~/miniconda3/conda-bld/noarch/%s-*py*.tar.bz2" % pkg))
+            fnames = glob.glob(os.path.join(os.path.expanduser("~"),
+                "miniconda3", "conda-bld", "noarch", "%s-*py*.tar.bz2" % pkg))
 
             latest = sorted(fnames)[-1]
             ctx.run("anaconda upload --force --user matsci %s" % latest)
@@ -27,20 +28,22 @@ def build_conda_noarch(ctx):
 
 @task
 def build_conda_platform(ctx, nopy27=False):
-    with cd("conda-skeletons/platform"):
+    with cd(os.path.join("conda-skeletons", "platform")):
         for pkg in ["latexcodec", "pybtex", "spglib", "pymatgen"]:
             # Py35 versions
             ctx.run("conda build %s" % pkg)
-            fnames = glob.glob(os.path.expanduser(
-                "~/miniconda3/conda-bld/*/%s-*py35*.tar.bz2" % pkg))
+            fnames = glob.glob(os.path.join(os.path.expanduser("~"),
+                "miniconda3", "conda-bld", "*", "%s-*py35*.tar.bz2" % pkg))
             latest = sorted(fnames)[-1]
             ctx.run("anaconda upload --force --user matsci %s" % latest)
 
             if not nopy27:
                 # Py27 versions
                 ctx.run("conda build --python 2.7 %s" % pkg)
-                fnames = glob.glob(os.path.expanduser(
-                    "~/miniconda3/conda-bld/*/%s-*py27*.tar.bz2" % pkg))
+                fnames = glob.glob(os.path.join(os.path.expanduser("~"),
+                                                "miniconda3", "conda-bld", "*",
+                                                "%s-*py27*.tar.bz2" % pkg))
+
                 latest = sorted(fnames)[-1]
                 ctx.run("anaconda upload --force --user matsci %s" % latest)
 
