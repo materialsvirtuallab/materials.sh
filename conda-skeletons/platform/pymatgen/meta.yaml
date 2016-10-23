@@ -1,14 +1,11 @@
 package:
   name: pymatgen
-  version: "4.4.8"
+  version: "4.4.9"
 
 source:
-  fn: pymatgen-4.4.8.tar.gz
-  url: https://pypi.python.org/packages/49/4f/ccf9ca92cd2ad456f40b75865de8223e428f542d3457f24accad776d8450/pymatgen-4.4.8.tar.gz
-  md5: 55973df6c12852c489549d85d8f0a3f3
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: pymatgen-4.4.9.tar.gz
+  url: https://pypi.python.org/packages/fe/4f/429335425e337536a79f34b07accb17b2e4da1ddd303852a4a87f6b301ed/pymatgen-4.4.9.tar.gz
+  md5: 617e7d910bfd14e85a304ada6a0b1a95
 
 build:
   # noarch_python: True
@@ -40,8 +37,6 @@ requirements:
     - numpy >=1.9
     - six
     - requests
-    - pydispatcher >=2.0.5
-    - pybtex
     - pyyaml >=3.11
     - monty >=0.9.6
     - scipy >=0.14
@@ -56,8 +51,6 @@ requirements:
     - numpy >=1.9
     - six
     - requests
-    - pydispatcher >=2.0.5
-    - pybtex
     - pyyaml >=3.11
     - monty >=0.9.6
     - scipy >=0.14
