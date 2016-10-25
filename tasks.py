@@ -3,7 +3,7 @@
 
 import glob
 import os
-import shutil
+import yaml
 
 from invoke import task
 
@@ -15,25 +15,25 @@ __date__ = "Sep 1, 2014"
 
 
 @task
-def build_conda_noarch(ctx):
-    with cd(os.path.join("conda-skeletons", "noarch")):
-        for pkg in os.listdir():
+def build_conda(ctx, pkg, nopy27=False):
+    print(pkg)
+    with cd(os.path.join("conda-skeletons")):
+        with open(os.path.join(pkg, "meta.yaml"), "rt") as f:
+            d = yaml.load(f)
+        noarch = d.get("build", {}).get("noarch_python", False)
+        if noarch:
             ctx.run("conda build %s" % pkg)
             fnames = glob.glob(os.path.join(os.path.expanduser("~"),
-                "miniconda3", "conda-bld", "noarch", "%s-*py*.tar.bz2" % pkg))
-
+                                            "miniconda3", "conda-bld", "noarch",
+                                            "%s-*py*.tar.bz2" % pkg))
             latest = sorted(fnames)[-1]
             ctx.run("anaconda upload --force --user matsci %s" % latest)
-
-
-@task
-def build_conda_platform(ctx, nopy27=False):
-    with cd(os.path.join("conda-skeletons", "platform")):
-        for pkg in ["latexcodec", "pybtex", "spglib", "pymatgen"]:
+        else:
             # Py35 versions
             ctx.run("conda build %s" % pkg)
             fnames = glob.glob(os.path.join(os.path.expanduser("~"),
-                "miniconda3", "conda-bld", "*", "%s-*py35*.tar.bz2" % pkg))
+                                            "miniconda3", "conda-bld", "*",
+                                            "%s-*py35*.tar.bz2" % pkg))
             latest = sorted(fnames)[-1]
             ctx.run("anaconda upload --force --user matsci %s" % latest)
 
@@ -47,8 +47,8 @@ def build_conda_platform(ctx, nopy27=False):
                 latest = sorted(fnames)[-1]
                 ctx.run("anaconda upload --force --user matsci %s" % latest)
 
-
 @task
-def build_conda(ctx, nopy27=False):
-    build_conda_noarch(ctx)
-    build_conda_platform(ctx, nopy27=nopy27)
+def build_all(ctx, nopy27=False):
+    with cd(os.path.join("conda-skeletons")):
+        for pkg in os.listdir():
+            build_conda(ctx, pkg, nopy27=nopy27)
