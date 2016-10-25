@@ -6,6 +6,8 @@ requirements:
   build:
     - git
     - gcc # [linux]
+    - m2w64-gcc-fortran # [win]
+    - make # [win]
 
 #test:
 ## commands we want to make sure they work, which are expected to get installed
