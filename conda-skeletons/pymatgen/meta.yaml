@@ -1,11 +1,14 @@
 package:
   name: pymatgen
-  version: "4.4.9"
+  version: "4.4.10"
 
 source:
-  fn: pymatgen-4.4.9.tar.gz
-  url: https://pypi.python.org/packages/fe/4f/429335425e337536a79f34b07accb17b2e4da1ddd303852a4a87f6b301ed/pymatgen-4.4.9.tar.gz
-  md5: 617e7d910bfd14e85a304ada6a0b1a95
+  fn: pymatgen-4.4.10.tar.gz
+  url: https://pypi.python.org/packages/8b/08/469843660b538fe6ca901b1b88e7ce73454af7ccee3dce2099de607a6d13/pymatgen-4.4.10.tar.gz
+  md5: 399f809d04cd7cd27630266d0bb9f2de
+#  patches:
+   # List any patch files here
+   # - fix.patch
 
 build:
   # noarch_python: True
@@ -44,6 +47,7 @@ requirements:
     - spglib >=1.9.7.1
     - matplotlib >=1.5
     - palettable >=2.1.1
+    - pydispatcher
     - enum34 # [py27]
 
   run:
@@ -58,6 +62,7 @@ requirements:
     - spglib >=1.9.7.1
     - matplotlib >=1.5
     - palettable >=2.1.1
+    - pydispatcher
     - enum34 # [py27]
 
 test:
@@ -86,7 +91,7 @@ test:
     - pymatgen.electronic_structure
     - pymatgen.entries
     - pymatgen.io
-    # - pymatgen.io.abinit
+    - pymatgen.io.abinit
     - pymatgen.io.feff
     - pymatgen.io.lammps
     - pymatgen.io.vasp
