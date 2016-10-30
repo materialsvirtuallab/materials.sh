@@ -1,11 +1,11 @@
 package:
   name: pymatgen
-  version: "4.4.10"
+  version: 4.4.11
 
 source:
-  fn: pymatgen-4.4.10.tar.gz
-  url: https://pypi.python.org/packages/8b/08/469843660b538fe6ca901b1b88e7ce73454af7ccee3dce2099de607a6d13/pymatgen-4.4.10.tar.gz
-  md5: 399f809d04cd7cd27630266d0bb9f2de
+  fn: pymatgen-4.4.11.tar.gz
+  url: https://pypi.python.org/packages/16/be/a7ad556fa55ccb43b3e00fc3516ea6ce2b9c1ca3bdc84097304ff60498cb/pymatgen-4.4.11.tar.gz
+  md5: a0f993b464af2445761abd57e65ff4ce
 #  patches:
    # List any patch files here
    # - fix.patch
