@@ -1,130 +1,100 @@
-package:
-  name: pymatgen
-  version: 4.4.11
-
-source:
-  fn: pymatgen-4.4.11.tar.gz
-  url: https://pypi.python.org/packages/16/be/a7ad556fa55ccb43b3e00fc3516ea6ce2b9c1ca3bdc84097304ff60498cb/pymatgen-4.4.11.tar.gz
-  md5: a0f993b464af2445761abd57e65ff4ce
-#  patches:
-   # List any patch files here
-   # - fix.patch
-
-build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - pymatgen = pymatgen:main
-    #
-    # Would create an entry point called pymatgen that calls pymatgen.main()
-
-    - pmg = pymatgen.cli.pmg:main
-    - feff_input_generation = pymatgen.cli.feff_input_generation:main
-    - feff_plot_cross_section = pymatgen.cli.feff_plot_cross_section:main
-    - feff_plot_dos = pymatgen.cli.feff_plot_dos:main
-    - gaussian_analyzer = pymatgen.cli.gaussian_analyzer:main
-    - get_environment = pymatgen.cli.get_environment:main
-    - pydii = pymatgen.cli.pydii:main
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
-
-requirements:
-  build:
-    - python
-    - setuptools
-    - numpy >=1.9
-    - six
-    - requests
-    - pyyaml >=3.11
-    - monty >=0.9.6
-    - scipy >=0.14
-    - tabulate
-    - spglib >=1.9.7.1
-    - matplotlib >=1.5
-    - palettable >=2.1.1
-    - pydispatcher
-    - enum34 # [py27]
-
-  run:
-    - python
-    - numpy >=1.9
-    - six
-    - requests
-    - pyyaml >=3.11
-    - monty >=0.9.6
-    - scipy >=0.14
-    - tabulate
-    - spglib >=1.9.7.1
-    - matplotlib >=1.5
-    - palettable >=2.1.1
-    - pydispatcher
-    - enum34 # [py27]
-
-test:
-  # Python imports
-  imports:
-    - pymatgen
-    - pymatgen.alchemy
-    - pymatgen.analysis
-    - pymatgen.analysis.chemenv
-    - pymatgen.analysis.chemenv.coordination_environments
-    - pymatgen.analysis.chemenv.coordination_environments.coordination_geometries_files
-    - pymatgen.analysis.chemenv.coordination_environments.strategy_files
-    - pymatgen.analysis.chemenv.utils
-    - pymatgen.analysis.cost
-    - pymatgen.analysis.defects
-    - pymatgen.analysis.diffraction
-    - pymatgen.analysis.elasticity
-    - pymatgen.analysis.hhi
-    - pymatgen.analysis.pourbaix
-    - pymatgen.apps
-    - pymatgen.apps.battery
-    - pymatgen.apps.borg
-    - pymatgen.cli
-    - pymatgen.command_line
-    - pymatgen.core
-    - pymatgen.electronic_structure
-    - pymatgen.entries
-    - pymatgen.io
-    - pymatgen.io.abinit
-    - pymatgen.io.feff
-    - pymatgen.io.lammps
-    - pymatgen.io.vasp
-    - pymatgen.matproj
-    - pymatgen.optimization
-    - pymatgen.phasediagram
-    - pymatgen.serializers
-    - pymatgen.structure_prediction
-    - pymatgen.symmetry
-    - pymatgen.transformations
-    - pymatgen.util
-    - pymatgen.vis
-
-  commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-    - pmg --help
-    - gaussian_analyzer --help
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
-
 about:
   home: http://www.pymatgen.org
   license: MIT License
-  summary: 'Python Materials Genomics is a robust materials analysis code that defines core object representations for structures and molecules with support for many electronic structure codes. It is currently the core analysis code powering the Materials Project (https://www.materialsproject.org).'
   license_family: MIT
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+  summary: Python Materials Genomics is a robust materials analysis code that defines
+    core object representations for structures and molecules with support for many
+    electronic structure codes. It is currently the core analysis code powering the
+    Materials Project (https://www.materialsproject.org).
+build:
+  entry_points:
+  - pmg = pymatgen.cli.pmg:main
+  - feff_input_generation = pymatgen.cli.feff_input_generation:main
+  - feff_plot_cross_section = pymatgen.cli.feff_plot_cross_section:main
+  - feff_plot_dos = pymatgen.cli.feff_plot_dos:main
+  - gaussian_analyzer = pymatgen.cli.gaussian_analyzer:main
+  - get_environment = pymatgen.cli.get_environment:main
+  - pydii = pymatgen.cli.pydii:main
+package:
+  name: pymatgen
+  version: 4.4.11
+requirements:
+  build:
+  - python
+  - setuptools
+  - numpy >=1.9
+  - six
+  - requests
+  - pyyaml >=3.11
+  - monty >=0.9.6
+  - scipy >=0.14
+  - tabulate
+  - spglib >=1.9.7.1
+  - matplotlib >=1.5
+  - palettable >=2.1.1
+  - pydispatcher
+  - enum34 #[py27]
+  run:
+  - python
+  - numpy >=1.9
+  - six
+  - requests
+  - pyyaml >=3.11
+  - monty >=0.9.6
+  - scipy >=0.14
+  - tabulate
+  - spglib >=1.9.7.1
+  - matplotlib >=1.5
+  - palettable >=2.1.1
+  - pydispatcher
+  - enum34 #[py27]
+source:
+  fn: pymatgen-4.4.11.tar.gz
+  md5: a0f993b464af2445761abd57e65ff4ce
+  url: https://pypi.python.org/packages/16/be/a7ad556fa55ccb43b3e00fc3516ea6ce2b9c1ca3bdc84097304ff60498cb/pymatgen-4.4.11.tar.gz
+test:
+  commands:
+  - pmg --help
+  - feff_input_generation --help
+  - feff_plot_cross_section --help
+  - feff_plot_dos --help
+  - gaussian_analyzer --help
+  - get_environment --help
+  - pydii --help
+  imports:
+  - pymatgen
+  - pymatgen.alchemy
+  - pymatgen.analysis
+  - pymatgen.analysis.chemenv
+  - pymatgen.analysis.chemenv.coordination_environments
+  - pymatgen.analysis.chemenv.coordination_environments.coordination_geometries_files
+  - pymatgen.analysis.chemenv.coordination_environments.strategy_files
+  - pymatgen.analysis.chemenv.utils
+  - pymatgen.analysis.cost
+  - pymatgen.analysis.defects
+  - pymatgen.analysis.diffraction
+  - pymatgen.analysis.elasticity
+  - pymatgen.analysis.hhi
+  - pymatgen.analysis.pourbaix
+  - pymatgen.apps
+  - pymatgen.apps.battery
+  - pymatgen.apps.borg
+  - pymatgen.cli
+  - pymatgen.command_line
+  - pymatgen.core
+  - pymatgen.electronic_structure
+  - pymatgen.entries
+  - pymatgen.io
+  - pymatgen.io.abinit
+  - pymatgen.io.feff
+  - pymatgen.io.lammps
+  - pymatgen.io.vasp
+  - pymatgen.matproj
+  - pymatgen.optimization
+  - pymatgen.phasediagram
+  - pymatgen.serializers
+  - pymatgen.structure_prediction
+  - pymatgen.symmetry
+  - pymatgen.transformations
+  - pymatgen.util
+  - pymatgen.vis

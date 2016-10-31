@@ -1,0 +1,79 @@
+package:
+  name: pymatgen-db
+  version: "0.6.4"
+
+source:
+  fn: pymatgen-db-0.6.4.tar.gz
+  url: https://pypi.python.org/packages/30/01/93d8844f51433ec93c47ef03db4cbea8a7fb755f4661938638f8753725fa/pymatgen-db-0.6.4.tar.gz
+  md5: f589ba49a30c27835feba058e8f388dc
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - pymatgen-db = pymatgen-db:main
+    #
+    # Would create an entry point called pymatgen-db that calls pymatgen-db.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pymatgen >=4.4.1
+    - monty >=0.9.6
+    - pymongo >=2.8
+    - mongomock
+    - smoqe
+    - enum34 # [py27]
+
+  run:
+    - python
+    - pymatgen >=4.4.1
+    - monty >=0.9.6
+    - pymongo >=2.8
+    - mongomock
+    - smoqe
+    - enum34 # [py27]
+
+test:
+  # Python imports
+  imports:
+    - matgendb
+    - matgendb.alchemy
+    - matgendb.builders
+    - matgendb.builders.examples
+    - matgendb.tests
+    - matgendb.vv
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/materialsproject/pymatgen-db
+  license: MIT License
+  summary: 'Pymatgen-db is a database add-on for the Python Materials Genomics (pymatgen) materials analysis library.'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

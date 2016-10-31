@@ -1,0 +1,68 @@
+package:
+  name: pymatgen-diffusion
+  version: "0.2.0"
+
+source:
+  fn: pymatgen-diffusion-0.2.0.tar.gz
+  url: https://pypi.python.org/packages/a6/39/43857be06cbaad6ba22e69c280007d4fb5b4a6f9f670607591779ce04a54/pymatgen-diffusion-0.2.0.tar.gz
+  md5: 64a1f2f5e8852ae8a170968643a55fd7
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - pymatgen-diffusion = pymatgen-diffusion:main
+    #
+    # Would create an entry point called pymatgen-diffusion that calls pymatgen-diffusion.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pymatgen >=4.4.11
+    - monty >=0.9.6
+
+  run:
+    - python
+    - pymatgen >=4.4.11
+    - monty >=0.9.6
+
+test:
+  # Python imports
+  imports:
+    - pymatgen_diffusion
+    - pymatgen_diffusion.aimd
+    - pymatgen_diffusion.neb
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/materialvirtuallab/pymatgen-diffusion/
+  license: BSD License
+  summary: 'Add-on to pymatgen for diffusion analysis.'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
