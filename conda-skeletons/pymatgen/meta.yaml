@@ -17,7 +17,7 @@ build:
   - pydii = pymatgen.cli.pydii:main
 package:
   name: pymatgen
-  version: 4.4.11
+  version: 4.4.12
 requirements:
   build:
   - python
@@ -29,7 +29,7 @@ requirements:
   - monty >=0.9.6
   - scipy >=0.14
   - tabulate
-  - spglib >=1.9.7.1
+  - spglib >=1.9.8
   - matplotlib >=1.5
   - palettable >=2.1.1
   - pydispatcher
@@ -43,15 +43,15 @@ requirements:
   - monty >=0.9.6
   - scipy >=0.14
   - tabulate
-  - spglib >=1.9.7.1
+  - spglib >=1.9.8
   - matplotlib >=1.5
   - palettable >=2.1.1
   - pydispatcher
   - enum34 #[py27]
 source:
-  fn: pymatgen-4.4.11.tar.gz
-  md5: a0f993b464af2445761abd57e65ff4ce
-  url: https://pypi.python.org/packages/16/be/a7ad556fa55ccb43b3e00fc3516ea6ce2b9c1ca3bdc84097304ff60498cb/pymatgen-4.4.11.tar.gz
+  fn: pymatgen-4.4.12.tar.gz
+  md5: 798a51040fa2b96321af4af3aa834cd0
+  url: https://pypi.python.org/packages/45/fd/8afa6827141c1c8c16f47c2bdd769a91739d564461479f03ce4eee514d52/pymatgen-4.4.12.tar.gz
 test:
   commands:
   - pmg --help

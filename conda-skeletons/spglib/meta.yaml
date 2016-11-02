@@ -1,11 +1,11 @@
 package:
   name: spglib
-  version: "1.9.7.17"
+  version: "1.9.8"
 
 source:
-  fn: spglib-1.9.7.17.tar.gz
-  url: https://pypi.python.org/packages/b2/05/8eeb62892e188d1d84410411c032ef81335f7793c3c3f3258e1bbafb36f3/spglib-1.9.7.17.tar.gz
-  md5: 4f650588630fda99b42844822a090b6c
+  fn: spglib-1.9.8.tar.gz
+  url: https://pypi.python.org/packages/eb/18/08b963bf9c8dc0af09fbdbdb51d07bcaddfbcfd3f450a66014455fb55345/spglib-1.9.8.tar.gz
+  md5: ebfb780a84cb8c0b0f971b8a95de8d01
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -55,9 +55,9 @@ test:
 
 about:
   home: http://atztogo.github.io/spglib/
-  license: BSD
+  license: MIT
   summary: 'This is the spglib module.'
-  license_family: BSD
+  license_family: MIT
 
 # See
 # http://docs.continuum.io/conda/build.html for
