@@ -55,12 +55,7 @@ source:
 test:
   commands:
   - pmg --help
-  - feff_input_generation --help
-  - feff_plot_cross_section --help
-  - feff_plot_dos --help
   - gaussian_analyzer --help
-  - get_environment --help
-  - pydii --help
   imports:
   - pymatgen
   - pymatgen.alchemy
