@@ -1,11 +1,11 @@
 package:
   name: spglib
-  version: "1.9.8.7"
+  version: "1.9.8.11"
 
 source:
-  fn: spglib-1.9.8.7.tar.gz
-  url: https://pypi.python.org/packages/c0/f1/dddf236f6d7438c89a92d6d7725b3e8f196b4c636109dfc9d7213b38298a/spglib-1.9.8.7.tar.gz
-  md5: e1a49166421e53ba96184bac46285374
+  fn: spglib-1.9.8.11.tar.gz
+  url: https://pypi.python.org/packages/ff/38/44a1e45afe5951bd86af7113f38bda8e22959826e9364b86b0327add80c0/spglib-1.9.8.11.tar.gz
+  md5: ff1d01c94d6ef0695ae875908287eb65
 #  patches:
    # List any patch files here
    # - fix.patch
