@@ -17,7 +17,7 @@ build:
   - pydii = pymatgen.cli.pydii:main
 package:
   name: pymatgen
-  version: 4.5.0
+  version: 4.5.1
 requirements:
   build:
   - python
@@ -49,13 +49,18 @@ requirements:
   - palettable >=2.1.1
   - enum34 #[py27]
 source:
-  fn: pymatgen-4.5.0.tar.gz
-  md5: f6364a708fb65738faa46d50a514c907
-  url: https://pypi.python.org/packages/53/fb/90f2125a40283418c9933a929e41c3a218c586d62f2d73607100ae8caacf/pymatgen-4.5.0.tar.gz
+  fn: pymatgen-4.5.1.tar.gz
+  md5: 4767e684aa358dbe1bc4d51fdafd02a0
+  url: https://pypi.python.org/packages/02/2a/eb54b9b33c30c9b98af9537b98e6579da8f94833000981d7aa9ebd7255ca/pymatgen-4.5.1.tar.gz
 test:
   commands:
   - pmg --help
+  - feff_input_generation --help
+  - feff_plot_cross_section --help
+  - feff_plot_dos --help
   - gaussian_analyzer --help
+  - get_environment --help
+  - pydii --help
   imports:
   - pymatgen
   - pymatgen.alchemy
