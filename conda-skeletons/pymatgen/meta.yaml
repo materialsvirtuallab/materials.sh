@@ -17,7 +17,7 @@ build:
   - pydii = pymatgen.cli.pydii:main
 package:
   name: pymatgen
-  version: 4.5.1
+  version: 4.5.2
 requirements:
   build:
   - python
@@ -49,9 +49,9 @@ requirements:
   - palettable >=2.1.1
   - enum34 #[py27]
 source:
-  fn: pymatgen-4.5.1.tar.gz
-  md5: 4767e684aa358dbe1bc4d51fdafd02a0
-  url: https://pypi.python.org/packages/02/2a/eb54b9b33c30c9b98af9537b98e6579da8f94833000981d7aa9ebd7255ca/pymatgen-4.5.1.tar.gz
+  fn: pymatgen-4.5.2.tar.gz
+  md5: 1644f5eb396550dd6f57dcbd8c1e75dd
+  url: https://pypi.python.org/packages/8e/0c/580f973221086c673d618a213ea22beb097b9d47d251ece72f9a7f9d59e5/pymatgen-4.5.2.tar.gz
 test:
   commands:
   - pmg --help
