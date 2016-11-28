@@ -7,9 +7,6 @@ python:
   - "3.5"
 sudo: required
 install:
-  - sudo apt-get update
-  # We do this conditionally because it saves us some downloading if the
-  # version is the same.
   - source install_conda.sh
   - export PATH="$HOME/miniconda/bin:$PATH"
   - hash -r
