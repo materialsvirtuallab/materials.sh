@@ -9,6 +9,7 @@ install:
   - pip install pip --upgrade
   - pip install -q -r requirements.txt --upgrade
   - conda update --all --yes
+  - conda install ruamel.yaml requests
   - conda install --yes conda-build anaconda-client
 before_script:
   - anaconda login --username $ANACONDA_USER --password $ANACONDA_PASSWORD
