@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-    if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+    if [[ "$TOXENV" == "27" ]]; then
         curl -o miniconda.sh https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh;
     else
         curl -o miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
