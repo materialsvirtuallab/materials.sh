@@ -1,4 +1,4 @@
-anaconda-client>=1.5.5
-conda>=4.2.13
-conda-build>=2.0.10
+anaconda-client
+conda
+conda-build
 invoke
