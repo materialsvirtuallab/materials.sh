@@ -1,6 +1,6 @@
 {% set name = "pybtex" %}
 {% set version = "0.20.1" %}
-{% set md5 = "7d7badd28afe6115feb45afefa2f9f8c" %}
+{% set md5 = "8c59ec6a7da00f68abb44a91a952dbe7" %}
 
 package:
   name: {{ name|lower }}
