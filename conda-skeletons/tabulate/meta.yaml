@@ -1,31 +1,22 @@
+{% set name = "tabulate" %}
+{% set version = "0.7.5" %}
+{% set md5 = "576e1f063b8e74dbfeda02d978564987" %}
+
 package:
-  name: tabulate
-  version: "0.7.5"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: tabulate-0.7.5.tar.gz
-  url: https://pypi.python.org/packages/db/40/6ffc855c365769c454591ac30a25e9ea0b3e8c952a1259141f5b9878bd3d/tabulate-0.7.5.tar.gz
-  md5: 576e1f063b8e74dbfeda02d978564987
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  md5: {{ md5 }}
 
 build:
   noarch_python: True
-  # preserve_egg_dir: True
   entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - tabulate = tabulate:main
-    #
-    # Would create an entry point called tabulate that calls tabulate.main()
-
     - tabulate = tabulate:_main
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
@@ -36,28 +27,11 @@ requirements:
     - python
 
 test:
-  # Python imports
-  # imports:
-
   commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
     - tabulate --help
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
 
 about:
   home: https://bitbucket.org/astanin/python-tabulate
   license: MIT License
   summary: 'Pretty-print tabular data'
   license_family: MIT
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
