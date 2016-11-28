@@ -53,6 +53,6 @@ def build_conda(ctx, pkg, nopy27=False):
 @task
 def build_all(ctx, nopy27=False):
     pkgs = sorted(os.listdir(os.path.join(module_dir, "conda-skeletons")))
-    # pkgs = [p for p in pkgs if p not in ["bader", "enumlib"]]
+    pkgs = [p for p in pkgs if p not in ["pybtex"]]
     for pkg in pkgs:
         build_conda(ctx, pkg, nopy27=nopy27)

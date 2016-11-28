@@ -23,6 +23,8 @@ requirements:
   build:
     - python
     - setuptools
+    - pyyaml >=3.01
+    - latexcodec >=1.0.2
   run:
     - python
     - setuptools
