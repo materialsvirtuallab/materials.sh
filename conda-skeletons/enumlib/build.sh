@@ -22,3 +22,7 @@ make makestr.x
 
 cp enum.x $BINARY_HOME
 cp makestr.x $BINARY_HOME
+
+# Cleanup.
+rm -rf $SRC_DIR/symlib
+rm -rf $SRC_DIR/enumlib

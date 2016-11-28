@@ -4,17 +4,12 @@ package:
 
 source:
   url: http://theory.cm.utexas.edu/henkelman/code/bader/download/bader.tar.gz
-#  patches:
-   # List any patch files here
-   # - fix.patch
 
 requirements:
   build:
     - gcc # [linux]
 
 test:
-# commands we want to make sure they work, which are expected to get installed
-# by the package
   commands:
     - bader -h
 
