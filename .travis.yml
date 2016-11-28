@@ -8,7 +8,6 @@ python:
 install:
   - pip install pip --upgrade
   - pip install -q -r requirements.txt --upgrade
-  - conda install ruamel.yaml requests
   - conda update --all --yes
   - conda install --yes conda-build anaconda-client
 before_script:
