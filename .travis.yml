@@ -1,0 +1,20 @@
+language: python
+os:
+  - linux
+  - osx
+python:
+  - "2.7"
+  - "3.5"
+# command to install dependencies
+sudo: false
+install:
+  - pip install -q -r requirements.txt --upgrade
+before_script:
+  - anaconda login --username $ANACONDA_USER --password $ANACONDA_PASSWORD
+script: invoke build_all
+notifications:
+  email:
+    recipients:
+      - shyuep@gmail.com
+    on_success: change
+    on_failure: always
