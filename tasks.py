@@ -15,9 +15,11 @@ __email__ = "ongsp@ucsd.edu"
 __date__ = "Sep 1, 2014"
 
 
+module_dir = os.path.dirname(os.path.abspath(__file__))
+
 @task
 def update_pypi(ctx, pkg):
-    with cd("conda-skeletons"):
+    with cd(os.path.join(module_dir, "conda-skeletons")):
         meta = os.path.join(pkg, "meta.yaml")
         noarch = False
         if os.path.exists(meta):
@@ -41,7 +43,7 @@ def update_pypi(ctx, pkg):
 
 @task
 def build_conda(ctx, pkg, nopy27=False):
-    with cd("conda-skeletons"):
+    with cd(os.path.join(module_dir, "conda-skeletons")):
         d = loadfn(os.path.join(pkg, "meta.yaml"))
         noarch = d.get("build", {}).get("noarch_python", False)
         if noarch:
@@ -72,5 +74,5 @@ def build_conda(ctx, pkg, nopy27=False):
 
 @task
 def build_all(ctx, nopy27=False):
-    for pkg in os.listdir("conda_skeletons"):
+    for pkg in os.listdir(os.path.join(module_dir, "conda-skeletons")):
         build_conda(ctx, pkg, nopy27=nopy27)
