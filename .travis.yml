@@ -7,9 +7,8 @@ python:
   - "3.5"
 install:
   - pip install pip --upgrade
-  - pip install conda --upgrade
+  - pip install -q -r requirements.txt --upgrade
   - conda install conda-build anaconda-client
-  #- pip install -q -r requirements.txt --upgrade
 before_script:
   - anaconda login --username $ANACONDA_USER --password $ANACONDA_PASSWORD
 script: invoke build_all

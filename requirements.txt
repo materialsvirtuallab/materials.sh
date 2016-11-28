@@ -1,4 +1,3 @@
-anaconda-client
 conda
-conda-build
+enum34
 invoke
