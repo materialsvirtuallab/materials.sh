@@ -1,4 +1,4 @@
 conda
 enum34
-ruamel
+ruamel.yaml
 invoke
