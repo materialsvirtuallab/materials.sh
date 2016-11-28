@@ -17,7 +17,7 @@ __date__ = "Sep 1, 2014"
 
 @task
 def update_pypi(ctx, pkg):
-    with cd(os.path.join("conda-skeletons")):
+    with cd("conda-skeletons"):
         meta = os.path.join(pkg, "meta.yaml")
         noarch = False
         if os.path.exists(meta):
@@ -41,7 +41,7 @@ def update_pypi(ctx, pkg):
 
 @task
 def build_conda(ctx, pkg, nopy27=False):
-    with cd(os.path.join("conda-skeletons")):
+    with cd("conda-skeletons"):
         d = loadfn(os.path.join(pkg, "meta.yaml"))
         noarch = d.get("build", {}).get("noarch_python", False)
         if noarch:
@@ -72,6 +72,5 @@ def build_conda(ctx, pkg, nopy27=False):
 
 @task
 def build_all(ctx, nopy27=False):
-    with cd(os.path.join("conda-skeletons")):
-        for pkg in os.listdir():
-            build_conda(ctx, pkg, nopy27=nopy27)
+    for pkg in os.listdir("conda_skeletons"):
+        build_conda(ctx, pkg, nopy27=nopy27)
