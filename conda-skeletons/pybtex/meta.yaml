@@ -1,41 +1,28 @@
+{% set name = "pybtex" %}
+{% set version = "0.20.1" %}
+{% set md5 = "7d7badd28afe6115feb45afefa2f9f8c" %}
+
 package:
-  name: pybtex
-  version: "0.20.1"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: pybtex-0.20.1.tar.bz2
-  url: https://pypi.python.org/packages/32/e8/85667af5baff772af58b59024d4a307f208d5ab8e694cca568f55530ed72/pybtex-0.20.1.tar.bz2
-  md5: 7d7badd28afe6115feb45afefa2f9f8c
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  md5: {{ md5 }}
 
 build:
-  # noarch_python: True
-  # preserve_egg_dir: True
   entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - pybtex = pybtex:main
-    #
-    # Would create an entry point called pybtex that calls pybtex.main()
-
     - pybtex = pybtex.__main__:main
     - pybtex-convert = pybtex.database.convert.__main__:main
     - pybtex-format = pybtex.database.format.__main__:main
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
-
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+  
 requirements:
   build:
     - python
     - setuptools
-    - pyyaml >=3.01
-    - latexcodec >=1.0.2
-
   run:
     - python
     - setuptools
@@ -43,7 +30,6 @@ requirements:
     - latexcodec >=1.0.2
 
 test:
-  # Python imports
   imports:
     - custom_fixers
     - pybtex
@@ -68,26 +54,12 @@ test:
     - pybtex.tests.database_test
 
   commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
     - pybtex --help
     - pybtex-convert --help
     - pybtex-format --help
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
 
 about:
   home: http://pybtex.org/
   license: MIT License
   summary: 'A BibTeX-compatible bibliography processor in Python'
   license_family: MIT
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
