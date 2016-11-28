@@ -28,7 +28,7 @@ install:
   - pip install -q -r requirements.txt --upgrade
 before_script:
   - anaconda login --username $ANACONDA_USER --password $ANACONDA_PASSWORD
-script: invoke build_all
+script: invoke build_all --nopy27
 notifications:
   email:
     recipients:
