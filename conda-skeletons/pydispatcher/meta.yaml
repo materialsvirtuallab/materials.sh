@@ -1,62 +1,42 @@
+{% set name = "PyDispatcher" %}
+{% set version = "2.0.5" %}
+{% set sha256 = "5570069e1b1769af1fe481de6dd1d3a388492acddd2cdad7a3bde145615d5caf" %}
+
 package:
-  name: pydispatcher
-  version: "2.0.5"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: PyDispatcher-2.0.5.tar.gz
-  url: https://pypi.python.org/packages/cd/37/39aca520918ce1935bea9c356bcbb7ed7e52ad4e31bff9b943dfc8e7115b/PyDispatcher-2.0.5.tar.gz
-  md5: 1b9c2ca33580c2770577add7130b0b28
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-  noarch_python: True
-  # preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - pydispatcher = pydispatcher:main
-    #
-    # Would create an entry point called pydispatcher that calls pydispatcher.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
     - setuptools
-
   run:
     - python
 
 test:
-  # Python imports
   imports:
     - pydispatch
 
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
-
 about:
   home: http://pydispatcher.sourceforge.net
-  license: BSD License
-  summary: 'Multi-producer-multi-consumer signal dispatching mechanism'
+  license: BSD 3-Clause
   license_family: BSD
+  license_file: license.txt
+  summary: 'Multi-producer-multi-consumer signal dispatching mechanism'
+  description: |
+    Multi-producer-multi-consumer signal dispatching mechanism
+  doc_url: http://pydispatcher.sourceforge.net/
+  dev_url: http://pydispatcher.sourceforge.net/
 
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+extra:
+  recipe-maintainers:
+    - shyuep

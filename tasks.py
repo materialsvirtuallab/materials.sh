@@ -38,47 +38,21 @@ def update_pypi(ctx, pkg):
             d["requirements"]["build"].append("enum34")
             d["requirements"]["run"].append("enum34")
             dumpfn(d, meta, default_flow_style=False)
-            ctx.run('sed -i "" "s/enum34/enum34 #[py27]/g" %s' % meta)
+            ctx.run('sed -i "" "s/enum34/enum34  # [py27]/g" %s' % meta)
 
 
 @task
 def build_conda(ctx, pkg, nopy27=False):
     with cd(os.path.join(module_dir, "conda-skeletons")):
         print("Building %s" % pkg)
-        try:
-            d = loadfn(os.path.join(module_dir, "conda-skeletons", pkg, "meta.yaml"))
-            noarch = d.get("build", {}).get("noarch_python", False)
-        except:
-            noarch = False
-        if noarch:
-            ctx.run("conda build --user matsci %s" % pkg)
-            # fnames = glob.glob(os.path.join(os.path.expanduser("~"),
-            #                                 "miniconda3", "conda-bld", "noarch",
-            #                                 "%s-*py*.tar.bz2" % pkg))
-            # latest = sorted(fnames)[-1]
-            # ctx.run("anaconda upload --force --user matsci %s" % latest)
-        else:
-            # Py35 versions
-            ctx.run("conda build --user matsci %s" % pkg)
-            # fnames = glob.glob(os.path.join(os.path.expanduser("~"),
-            #                                 "miniconda3", "conda-bld", "*",
-            #                                 "%s-*py35*.tar.bz2" % pkg))
-            # latest = sorted(fnames)[-1]
-            # ctx.run("anaconda upload --force --user matsci %s" % latest)
-
-            if not nopy27:
-                # Py27 versions
-                ctx.run("conda build --user matsci --python 2.7 %s" % pkg)
-                # fnames = glob.glob(os.path.join(os.path.expanduser("~"),
-                #                                 "miniconda3", "conda-bld", "*",
-                #                                 "%s-*py27*.tar.bz2" % pkg))
-
-                # latest = sorted(fnames)[-1]
-                # ctx.run("anaconda upload --force --user matsci %s" % latest)
+        ctx.run("conda build --user matsci %s" % pkg)
+        if not nopy27:
+            # Py27 versions
+            ctx.run("conda build --user matsci --python 2.7 %s" % pkg)
 
 @task
 def build_all(ctx, nopy27=False):
     pkgs = sorted(os.listdir(os.path.join(module_dir, "conda-skeletons")))
-    pkgs = [p for p in pkgs if p not in ["bader", "enumlib"]]
+    # pkgs = [p for p in pkgs if p not in ["bader", "enumlib"]]
     for pkg in pkgs:
         build_conda(ctx, pkg, nopy27=nopy27)
