@@ -22,6 +22,7 @@ install:
   - conda update -q conda
   # Useful for debugging any issues with conda
   - conda info -a
+  - conda install conda-build anaconda-client
   - pip install pip --upgrade
   - pip install -q -r requirements.txt --upgrade
 before_script:

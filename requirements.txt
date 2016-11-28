@@ -1,6 +1,6 @@
-conda
-enum34
-ruamel.yaml
-requests
-pycosat
+#conda
+#enum34
+#ruamel.yaml
+#requests
+#pycosat
 invoke
