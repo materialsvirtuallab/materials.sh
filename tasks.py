@@ -74,5 +74,6 @@ def build_conda(ctx, pkg, nopy27=False):
 
 @task
 def build_all(ctx, nopy27=False):
-    for pkg in os.listdir(os.path.join(module_dir, "conda-skeletons")):
+    pkgs = sorted(os.listdir(os.path.join(module_dir, "conda-skeletons")))
+    for pkg in pkgs:
         build_conda(ctx, pkg, nopy27=nopy27)
