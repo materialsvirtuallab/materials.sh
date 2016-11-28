@@ -2,4 +2,5 @@ conda
 enum34
 ruamel.yaml
 requests
+pycosat
 invoke
