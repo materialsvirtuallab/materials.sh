@@ -45,8 +45,11 @@ def update_pypi(ctx, pkg):
 def build_conda(ctx, pkg, nopy27=False):
     with cd(os.path.join(module_dir, "conda-skeletons")):
         print("Building %s" % pkg)
-        d = loadfn(os.path.join(module_dir, "conda-skeletons", pkg, "meta.yaml"))
-        noarch = d.get("build", {}).get("noarch_python", False)
+        try:
+            d = loadfn(os.path.join(module_dir, "conda-skeletons", pkg, "meta.yaml"))
+            noarch = d.get("build", {}).get("noarch_python", False)
+        except:
+            noarch = False
         if noarch:
             ctx.run("conda build --user matsci %s" % pkg)
             # fnames = glob.glob(os.path.join(os.path.expanduser("~"),
