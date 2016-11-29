@@ -5,6 +5,9 @@ package:
 source:
   url: http://theory.cm.utexas.edu/henkelman/code/bader/download/bader.tar.gz
 
+build:
+  number: 1
+
 requirements:
   build:
     - gcc # [linux]
