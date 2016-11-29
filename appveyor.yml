@@ -34,7 +34,7 @@ test_script:
   #
   - "%CMD_IN_ENV% pip install -r requirements.txt"
   - "%CMD_IN_ENV% ls"
-  - "%CMD_IN_ENV% cd conda-skeletons && conda build monty"
+  - "%CMD_IN_ENV% build_win64.bat"
   # - "%CMD_IN_ENV% "
   # Move the conda package into the current directory, to register it
   # as an "artifact" for Appveyor. cmd.exe does't have good globbing, so
