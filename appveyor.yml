@@ -14,51 +14,30 @@ environment:
       CONDA_NPY: "111"
 
 install:
-  # If there is a newer build queued for the same PR, cancel this one.
-  # The AppVeyor 'rollout builds' option is supposed to serve the same
-  # purpose but it is problematic because it tends to cancel builds pushed
-  # directly to master instead of just PR builds (or the converse).
-  # credits: JuliaLang developers.
+  # this installs the appropriate Miniconda (Py2/Py3, 32/64 bit),
+  # as well as pip, conda-build, and the binstar CLI
   - powershell .\\appveyor\\install.ps1
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - ECHO "Filesystem root:"
-  - ps: "ls \"C:/\""
 
-  - ECHO "Installed SDKs:"
-  - ps: "ls \"C:/Program Files/Microsoft SDKs/Windows\""
+build: false
 
-  - ECHO "Current Directory:"
-  - ps: "ls"
-
-  # Install Python (from the official .msi of http://python.org) and pip when
-  # not already installed.
-  - ps: if (-not(Test-Path($env:PYTHON))) { & appveyor\install.ps1 }
-
-  # Prepend newly installed Python to the PATH of this build (this cannot be
-  # done from inside the powershell script as it would require to restart
-  # the parent CMD process).
-  - "SET PATH=c:\\Miniconda35-x64\\bin;%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-
-  # Check that we have the expected version and architecture for Python
-  - "python --version"
-  - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-
-  # Upgrade to the latest version of pip to avoid it displaying warnings
-  # about it being out of date.
-  - "pip install --disable-pip-version-check --user --upgrade pip"
-
-  # Install the build dependencies of the project. If some dependencies contain
-  # compiled extensions and are not provided as pre-built wheel packages,
-  # pip will build them from source using the MSVC compiler matching the
-  # target Python version and architecture
+test_script:
+  # Build and test the package. This appears(?) to sporadically fail due to a 
+  # bug in conda-build on 32 bit python.
+  # https://github.com/conda/conda-build/issues/152
+  #
+  # Note also that our setup.py script, which is called by conda-build, writes
+  # a __conda_version__.txt file, so the version number on the binary package
+  # is set dynamically. This unfortunately mean that conda build --output
+  # doesn't really work.
+  #
   - "%CMD_IN_ENV% pip install -r requirements.txt"
-
-build_script:
   - "%CMD_IN_ENV% ls"
   - "%CMD_IN_ENV% cd conda-skeletons"
   - "%CMD_IN_ENV% conda build monty"
-
-test_script:
-  # Run the project tests
-    - "%CMD_IN_ENV% ls"
+  # Move the conda package into the current directory, to register it
+  # as an "artifact" for Appveyor. cmd.exe does't have good globbing, so
+  # we'll use a simple python script.
+  #- python continuous-integration\move-conda-package.py conda-recipe
+  #- "%CMD_IN_ENV% pip install -r requirements.txt"
 
