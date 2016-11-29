@@ -22,6 +22,8 @@ conda update -q conda
 # Useful for debugging any issues with conda
 conda info -a
 conda install conda-build anaconda-client
-anaconda login --username $ANACONDA_USER --password $ANACONDA_PASSWORD
+if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then
+    anaconda login --username $ANACONDA_USER --password $ANACONDA_PASSWORD
+fi
 conda config --add channels matsci
 conda config --set anaconda_upload yes
