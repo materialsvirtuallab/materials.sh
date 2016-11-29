@@ -55,7 +55,7 @@ install:
 
 build_script:
   - "%CMD_IN_ENV% ls"
-  - "%CMD_IN_ENV% cd conda_skeletons"
+  - "%CMD_IN_ENV% cd conda-skeletons"
   - "%CMD_IN_ENV% conda build monty"
 
 test_script:
