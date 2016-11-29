@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-    if [[ "$TOXENV" == "27" ]]; then
+    if [[ "$TOXENV" == "py27" ]]; then
         curl -o miniconda.sh https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh;
     else
         curl -o miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh;
@@ -22,10 +22,6 @@ conda update -q conda
 # Useful for debugging any issues with conda
 conda info -a
 conda install conda-build anaconda-client
-if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-    anaconda login --hostname travis-mavrl-osx --username $ANACONDA_USER --password $ANACONDA_PASSWORD
-else
-    anaconda login --username $ANACONDA_USER --password $ANACONDA_PASSWORD
-fi
+anaconda login --hostname travis-mavrl-$TRAVIS_OS_NAME --username $ANACONDA_USER --password $ANACONDA_PASSWORD
 conda config --add channels matsci
 conda config --set anaconda_upload yes

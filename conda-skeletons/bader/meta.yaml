@@ -1,6 +1,10 @@
+{% set name = "bader" %}
+{% set version = "0.9.5" %}
+{% set md5 = "2bc54f94d4c6d2aac9fd59b7f8948fd8" %}
+
 package:
-  name: bader
-  version: "0.9.5"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: http://theory.cm.utexas.edu/henkelman/code/bader/download/bader.tar.gz

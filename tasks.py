@@ -4,6 +4,7 @@
 import glob
 import os
 import shutil
+import pkg_resources
 
 from invoke import task
 
@@ -39,6 +40,29 @@ def update_pypi(ctx, pkg):
             d["requirements"]["run"].append("enum34")
             dumpfn(d, meta, default_flow_style=False)
             ctx.run('sed -i "" "s/enum34/enum34  # [py27]/g" %s' % meta)
+
+
+def get_env_version(pkg):
+    try:
+        return pkg_resources.get_distribution(pkg).version
+    except (ImportError, pkg_resources.DistributionNotFound):
+        return None
+    return None
+
+
+@task
+def update_templates(ctx):
+    with cd(os.path.join(module_dir, "conda-skeletons")):
+        for pkg in os.listdir("."):
+            with open(os.path.join(module_dir, "conda-skeletons", pkg, "meta.yaml")) as f:
+                contents = f.read()
+                from jinja2 import Template
+                t = Template(contents)
+                name = t.module.name
+                version = t.module.version
+                env_version = get_env_version(name)
+                if version != env_version:
+                    print("Update %s from v%s to v%s" % (name, version, env_version))
 
 
 @task
