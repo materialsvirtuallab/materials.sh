@@ -54,6 +54,7 @@ install:
   - "%CMD_IN_ENV% pip install -r requirements.txt"
 
 build_script:
+  - "%CMD_IN_ENV% ls"
   - "%CMD_IN_ENV% cd conda_skeletons"
   - "%CMD_IN_ENV% conda build monty"
 
