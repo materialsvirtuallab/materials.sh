@@ -18,8 +18,8 @@ matrix:
 install:
   - source install_conda.sh
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-       brew update
-       brew install gcc
+       brew update;
+       brew install gcc;
     fi
   - pip install pip --upgrade
   - pip install -q -r requirements.txt --upgrade

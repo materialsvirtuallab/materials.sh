@@ -13,8 +13,6 @@ requirements:
     - make # [win]
 
 #test:
-## commands we want to make sure they work, which are expected to get installed
-## by the package
 #  commands:
 #    - enum.x
 
