@@ -1,30 +1,20 @@
+{% set name = "spglib" %}
+{% set version = "1.9.8.20" %}
+{% set md5 = "f33e3eff42b73d730952eba266cd01282672e0dd93b985f89eedd3af91632e4e" %}
+
 package:
-  name: spglib
-  version: "1.9.8.15"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: spglib-1.9.8.15.tar.gz
-  url: https://pypi.python.org/packages/0a/e9/f09442f8c13e77fca9d6d16a92bd56ac9ef3434f4263f0eba354d3ed2d07/spglib-1.9.8.15.tar.gz
-  md5: 68d9756273f5a8af6bcc12c14e029f7b
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ md5 }}
 
-# build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - spglib = spglib:main
-    #
-    # Would create an entry point called spglib that calls spglib.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+build:
+  skip: true  # [win and py<35]
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
@@ -37,28 +27,11 @@ requirements:
     - numpy
 
 test:
-  # Python imports
   imports:
     - spglib
-
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
 
 about:
   home: http://atztogo.github.io/spglib/
   license: MIT
   summary: 'This is the spglib module.'
   license_family: MIT
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
