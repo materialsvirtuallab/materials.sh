@@ -22,6 +22,6 @@ conda update -q conda
 # Useful for debugging any issues with conda
 conda info -a
 conda install conda-build anaconda-client
-anaconda login --hostname travis-mavrl-$TRAVIS_OS_NAME --username $ANACONDA_USER --password $ANACONDA_PASSWORD
+anaconda login --hostname travis-mavrl-$TRAVIS_OS_NAME-$TOXENV --username $ANACONDA_USER --password $ANACONDA_PASSWORD
 conda config --add channels matsci
 conda config --set anaconda_upload yes
