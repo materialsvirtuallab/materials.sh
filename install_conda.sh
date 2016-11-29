@@ -22,7 +22,9 @@ conda update -q conda
 # Useful for debugging any issues with conda
 conda info -a
 conda install conda-build anaconda-client
-if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then
+if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+    anaconda login --hostname travis-mavrl-osx --username $ANACONDA_USER --password $ANACONDA_PASSWORD
+else
     anaconda login --username $ANACONDA_USER --password $ANACONDA_PASSWORD
 fi
 conda config --add channels matsci
