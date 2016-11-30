@@ -12,7 +12,7 @@ cd $SRC_DIR/enumlib/symlib/src
 make
 
 # Make polya
-cd $SRC_DIR/polya/fortran
+cd $SRC_DIR/enumlib/polya/fortran
 make
 
 # Make enum
