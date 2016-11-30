@@ -3,13 +3,9 @@
 BINARY=enum
 BINARY_HOME=$PREFIX/bin
 
-git clone https://github.com/msg-byu/enumlib.git
-git clone https://github.com/msg-byu/symlib.git
+git clone --recursive https://github.com/msg-byu/enumlib.git
 
-#unzip symlib
-#unzip enumlib
-
-cd $SRC_DIR/symlib/src
+cd $SRC_DIR/enumlib/symlib/src
 
 export F90=gfortran
 make
@@ -24,5 +20,4 @@ cp enum.x $BINARY_HOME
 cp makestr.x $BINARY_HOME
 
 # Cleanup.
-rm -rf $SRC_DIR/symlib
 rm -rf $SRC_DIR/enumlib
