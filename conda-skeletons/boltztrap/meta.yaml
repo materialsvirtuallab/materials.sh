@@ -17,14 +17,12 @@ build:
 requirements:
   build:
     - gcc
-    - lapack  # [osx]
-    - blas  # [osx]
     - m2w64-gcc-fortran # [win]
     - make # [win]
 
-test:
-  commands:
-    - x_trans -h
+#test:
+#  commands:
+#    - x_trans -h
 
 about:
   home: http://www.icams.de/research/software-development/boltztrap
