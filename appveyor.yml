@@ -20,6 +20,7 @@ install:
   # as well as pip, conda-build, and the binstar CLI
   - powershell .\\appveyor\\install.ps1
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - "%CMD_IN_ENV% python --version"
 
 build: false
 
