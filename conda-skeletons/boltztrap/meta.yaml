@@ -17,8 +17,8 @@ build:
 requirements:
   build:
     - gcc
-    - lapack
-    - blas
+    - lapack  # [osx]
+    - blas  # [osx]
     - m2w64-gcc-fortran # [win]
     - make # [win]
 
