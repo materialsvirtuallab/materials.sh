@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>materials.sh by materialsvirtuallab</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>materials.sh</h1>
+          <h2>software for materials science</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/materialsvirtuallab/materials.sh/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/materialsvirtuallab/materials.sh/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/materialsvirtuallab/materials.sh" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h2>
+<a id="materialssh" class="anchor" href="#materialssh" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>materials.sh</h2>
+
+<p>materials.sh is an initiative to build the world's most comprehensive collection
+of useful software for materials science. </p>
+
+<p>The intent is to improve the accessibility of these tools to all researchers by
+enabling one-line installations of highly useful software packages without the need 
+for compilation, etc. All packages are hosted on the <code>matsci</code> channel on Anaconda
+Cloud.</p>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting started</h2>
+
+<h3>
+<a id="step-1-preparing-your-system" class="anchor" href="#step-1-preparing-your-system" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1: Preparing your system</h3>
+
+<h4>
+<a id="windows" class="anchor" href="#windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows</h4>
+
+<ol>
+<li>Download Microsoft Visual Studio 2015 (the free Community Edition) is fine.</li>
+<li>Install Visual Studio 2015, but <em>make sure that you select More Options -&gt;
+Programming Languages -&gt; Visual C++ during the installation process</em>. By
+default, Visual Studio does not install Visual C++, which is needed.</li>
+</ol>
+
+<h4>
+<a id="mac-osx" class="anchor" href="#mac-osx" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mac OSX</h4>
+
+<ol>
+<li>
+<p>Download and install Xcode. Afterwards, install the XCode command line
+tools by typing the following in a terminal::</p>
+
+<pre><code>xcode-select --install
+</code></pre>
+</li>
+</ol>
+
+<h4>
+<a id="linux" class="anchor" href="#linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linux</h4>
+
+<ol>
+<li>Usually no preparation is needed as most of the standard compilers should
+already be available.</li>
+</ol>
+
+<h3>
+<a id="step-2-install-conda" class="anchor" href="#step-2-install-conda" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2: Install conda</h3>
+
+<p>Download and install the version of conda for your operating system from
+<a href="http://conda.pydata.org/miniconda.html">http://conda.pydata.org/miniconda.html</a>. For Windows, <strong>make sure it is the
+Miniconda3 installer</strong>, and simply double-click the exe file. For Linux or Mac,
+run::</p>
+
+<pre><code># If Mac
+bash Miniconda3-latest-MacOSX-x86_64.sh
+
+# If Linux
+bash Miniconda3-latest-Linux-x86_64.sh
+</code></pre>
+
+<p>Note that you may need to create a new terminal after this step in order for
+the environmental variables added by conda to be loaded.</p>
+
+<h3>
+<a id="step-2b-optional-create-a-conda-environment" class="anchor" href="#step-2b-optional-create-a-conda-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2b: (Optional) Create a conda environment</h3>
+
+<p>If you are working with many python packages, it is generally recommended you
+create a separate environment for each of your packages. For example::</p>
+
+<pre><code>conda create --name my_env python
+source activate my_env  # OSX or Linux
+activate my_env  # Windows
+</code></pre>
+
+<h3>
+<a id="step-3-add-the-matsci-channel" class="anchor" href="#step-3-add-the-matsci-channel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3: Add the matsci channel</h3>
+
+<p>You can now install materials science software packages in materials.sh via the 
+following command::</p>
+
+<pre><code>conda install --channel matsci &lt;package&gt;
+</code></pre>
+
+<p>where <code>--channel matsci</code> indicates to use the matsci channel.</p>
+
+<p>If you believe you will be using the channel frequently, you can add it to the list
+of channels in your environment with the following command::</p>
+
+<pre><code>conda config --add channels matsci
+</code></pre>
+
+<h2>
+<a id="available-packages" class="anchor" href="#available-packages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Available packages</h2>
+
+<p>The packages available are constantly updated. You can check out the currently 
+available packages on the <code>matsci channel on Anaconda Cloud &lt;https://anaconda.org/matsci&gt;</code><em>, or simply look at the conda-skeletons folder in this repo. This initiative 
+arose from the desire to make <code>Python Materials Genomics &lt;http://pymatgen.org&gt;</code></em> and 
+its associated dependencies a lot easier to install for users on all platforms, so these
+will always be available.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Contributions are always welcome. Feel free to fork this repo and add your proposed
+conda software recipes to the conda-skeletons folder. This repo is continuously
+integrated via TravisCI and Appveyor to build all Linux, OSX and Windows versions, 
+where compatible.</p>
+        </section>
+
+        <footer>
+          materials.sh is maintained by <a href="https://github.com/materialsvirtuallab">materialsvirtuallab</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
