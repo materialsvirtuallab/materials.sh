@@ -1,4 +1,9 @@
+branches:
+  only:
+  - master
+
 language: python
+
 matrix:
   include:
     - os: linux
@@ -15,6 +20,7 @@ matrix:
     - os: osx
       language: generic
       env: TOXENV=py35
+
 install:
   - source install_conda.sh
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
@@ -23,7 +29,9 @@ install:
     fi
   - pip install pip --upgrade
   - pip install -q -r requirements.txt --upgrade
+
 script: invoke build_all --nopy27
+
 notifications:
   email:
     recipients:
