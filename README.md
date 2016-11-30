@@ -19,7 +19,9 @@ The instructions are written for Python 3. For Windows, this is the only support
 
 1. Download and install Xcode. Afterwards, install the XCode command line tools by typing the following in a terminal:
 
-        xcode-select --install
+```bash
+xcode-select --install
+```
 
 #### Linux
 
@@ -33,13 +35,17 @@ For Windows, **make sure it is the Miniconda3 installer**, and simply double-cli
 
 For Mac, run:
 
-    curl -o Miniconda3-latest-MacOSX-x86_64.sh https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-    bash Miniconda3-latest-MacOSX-x86_64.sh -b
+```bash
+curl -o Miniconda3-latest-MacOSX-x86_64.sh https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+bash Miniconda3-latest-MacOSX-x86_64.sh -b
+```
 
 For Linux, run:
 
-    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O Miniconda3-latest-Linux-x86_64.sh;
-    bash Miniconda3-latest-Linux-x86_64.sh -b
+```bash
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O Miniconda3-latest-Linux-x86_64.sh;
+bash Miniconda3-latest-Linux-x86_64.sh -b
+```
 
 Note that you may need to create a new terminal after this step in order for the environmental variables added by conda to be loaded.
 
@@ -47,25 +53,47 @@ Note that you may need to create a new terminal after this step in order for the
 
 If you are working with many python packages, it is generally recommended you create a separate environment for each of your packages. For example:
 
-    conda create --name my_env python
-    source activate my_env  # OSX or Linux
-    activate my_env  # Windows
+```bash
+conda create --name my_env python
+source activate my_env  # OSX or Linux
+activate my_env  # Windows
+```
 
 ### Step 3: Add the matsci channel
 
 You can now install materials science software packages in materials.sh via the following command:
 
-    conda install --channel matsci <package>
+```bash
+conda install --channel matsci <package>
+```
 
 where `--channel matsci` indicates to use the matsci channel.
 
 If you believe you will be using the channel frequently, you can add it to the list of channels in your environment with the following command:
 
-    conda config --add channels matsci
+```bash
+conda config --add channels matsci
+```
 
 ## Available packages
 
-The packages available are constantly updated. You can check out the currently available packages on the [matsci channel on Anaconda Cloud](https://anaconda.org/matsci), or simply look at the conda-skeletons folder in this repo. This initiative arose from the desire to make [Python Materials Genomics](http://www.pymatgen.org) and its associated dependencies a lot easier to install for users on all platforms. Please note that not all packages are available for all OSes.
+The packages available are constantly updated. You can check out the currently available packages on the [matsci channel on Anaconda Cloud](https://anaconda.org/matsci), or simply look at the conda-skeletons folder in this repo. As of writing, the packages available are:
+
+* bader
+* custodian
+* enumlib
+* latexcodec
+* monty
+* palettable
+* pybtex
+* pydispatcher
+* pymatgen
+* pymatgen-diffusion
+* seekpath
+* spglib
+* tabulate
+
+This initiative arose from the desire to make [Python Materials Genomics](http://www.pymatgen.org) and its associated dependencies a lot easier to install for users on all platforms. So these will always be available. Please note that not all packages are available for all OSes.
 
 ## Contributing
 
