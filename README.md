@@ -93,7 +93,7 @@ The packages available are constantly updated. You can check out the currently a
 * spglib
 * tabulate
 
-This initiative arose from the desire to make [Python Materials Genomics](http://www.pymatgen.org) and its associated dependencies a lot easier to install for users on all platforms. So these will always be available. Please note that not all packages are available for all OSes.
+This effort initially arose from the desire to make [Python Materials Genomics](http://www.pymatgen.org) and its associated dependencies a lot easier to install for users on all platforms. So these will always be available. Please note that not all packages are available for all OSes.
 
 ## Contributing
 
