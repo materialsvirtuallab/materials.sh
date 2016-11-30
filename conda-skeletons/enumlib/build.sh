@@ -5,11 +5,17 @@ BINARY_HOME=$PREFIX/bin
 
 git clone --recursive https://github.com/msg-byu/enumlib.git
 
-cd $SRC_DIR/enumlib/symlib/src
-
 export F90=gfortran
+
+# Make symlib
+cd $SRC_DIR/enumlib/symlib/src
 make
 
+# Make polya
+cd $SRC_DIR/polya/fortran
+make
+
+# Make enum
 cd $SRC_DIR/enumlib/src
 
 make
