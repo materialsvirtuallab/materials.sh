@@ -23,3 +23,8 @@ test_script:
   - "%CMD_IN_ENV% pip install -r requirements.txt"
   - "%CMD_IN_ENV% python login.py"
   - "%CMD_IN_ENV% build_win64.bat"
+
+notifications:
+  - provider: Email
+    to:
+      - shyuep@gmail.com
