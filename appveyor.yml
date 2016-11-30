@@ -20,22 +20,6 @@ install:
 build: false
 
 test_script:
-  # Build and test the package. This appears(?) to sporadically fail due to a 
-  # bug in conda-build on 32 bit python.
-  # https://github.com/conda/conda-build/issues/152
-  #
-  # Note also that our setup.py script, which is called by conda-build, writes
-  # a __conda_version__.txt file, so the version number on the binary package
-  # is set dynamically. This unfortunately mean that conda build --output
-  # doesn't really work.
-  #
   - "%CMD_IN_ENV% pip install -r requirements.txt"
-  - "%CMD_IN_ENV% ls"
+  - "%CMD_IN_ENV% python login.py"
   - "%CMD_IN_ENV% build_win64.bat"
-  # - "%CMD_IN_ENV% "
-  # Move the conda package into the current directory, to register it
-  # as an "artifact" for Appveyor. cmd.exe does't have good globbing, so
-  # we'll use a simple python script.
-  #- python continuous-integration\move-conda-package.py conda-recipe
-  #- "%CMD_IN_ENV% pip install -r requirements.txt"
-
