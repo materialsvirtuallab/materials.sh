@@ -1,8 +1,8 @@
 ## materials.sh
 
-materials.sh is a community initiative to build the world's most comprehensive collection of software for materials science.
+[materials.sh](http://materials.sh) is a community initiative to build the world's most comprehensive collection of software for materials science.
 
-The intent is to improve the accessibility of these tools to all researchers by enabling one-line installations of highly useful software packages without the need for compilation, etc. All packages are hosted on the `matsci` channel on Anaconda Cloud.
+The intent is to improve the accessibility of these tools to all researchers by enabling one-line installations of highly useful software packages without the need for compilation, etc. All packages are hosted on the [matsci channel on Anaconda Cloud](https://anaconda.org/matsci).
 
 ## Available packages
 
