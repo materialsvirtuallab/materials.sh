@@ -30,7 +30,7 @@ install:
        brew install gcc;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-       sudo apt-get install liblapack3;
+       sudo apt-get install liblapack-dev libblas-dev;
     fi
   - pip install pip --upgrade
   - pip install -q -r requirements.txt --upgrade
