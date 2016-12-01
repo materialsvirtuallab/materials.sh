@@ -31,7 +31,7 @@
         <hr>
 
         <section id="main_content">
-          <p>materials.sh is an initiative to build the world's most comprehensive collection of software for materials science.</p>
+          <p>materials.sh is a community initiative to build the world's most comprehensive collection of software for materials science.</p>
 
 <p>The intent is to improve the accessibility of these tools to all researchers by enabling one-line installations of highly useful software packages without the need for compilation, etc. All packages are hosted on the <code>matsci</code> channel on Anaconda Cloud.</p>
 
@@ -65,34 +65,7 @@
 <p>The instructions are written for Python 3. For Windows, this is the only supported platform. For other OSes, the instructions below can be trivially modified for Python 2.7.</p>
 
 <h3>
-<a id="step-1-preparing-your-system" class="anchor" href="#step-1-preparing-your-system" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1: Preparing your system</h3>
-
-<h4>
-<a id="windows" class="anchor" href="#windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows</h4>
-
-<ol>
-<li>Download Microsoft Visual Studio 2015 (the free Community Edition) is fine.</li>
-<li>Install Visual Studio 2015, but <em>make sure that you select More Options -&gt; Programming Languages -&gt; Visual C++ during the installation process</em>. By default, Visual Studio does not install Visual C++, which is needed.</li>
-</ol>
-
-<h4>
-<a id="mac-osx" class="anchor" href="#mac-osx" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mac OSX</h4>
-
-<ol>
-<li>Download and install Xcode. Afterwards, install the XCode command line tools by typing the following in a terminal:</li>
-</ol>
-
-<div class="highlight highlight-source-shell"><pre>xcode-<span class="pl-k">select</span> <span class="pl-smi">--install</span></pre></div>
-
-<h4>
-<a id="linux" class="anchor" href="#linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linux</h4>
-
-<ol>
-<li>Usually no preparation is needed as most of the standard compilers should already be available.</li>
-</ol>
-
-<h3>
-<a id="step-2-install-conda" class="anchor" href="#step-2-install-conda" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2: Install conda</h3>
+<a id="step-1-install-conda" class="anchor" href="#step-1-install-conda" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1: Install conda</h3>
 
 <p>Download and install the version of conda for your operating system from <a href="http://conda.pydata.org/miniconda.html">http://conda.pydata.org/miniconda.html</a>.</p>
 
@@ -111,7 +84,7 @@ bash Miniconda3-latest-Linux-x86_64.sh -b</pre></div>
 <p>Note that you may need to create a new terminal after this step in order for the environmental variables added by conda to be loaded.</p>
 
 <h3>
-<a id="step-2b-optional-create-a-conda-environment" class="anchor" href="#step-2b-optional-create-a-conda-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2b: (Optional) Create a conda environment</h3>
+<a id="step-1b-optional-create-a-conda-environment" class="anchor" href="#step-1b-optional-create-a-conda-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1b: (Optional) Create a conda environment</h3>
 
 <p>If you are working with many python packages, it is generally recommended you create a separate environment for each of your packages. For example:</p>
 
@@ -120,7 +93,7 @@ bash Miniconda3-latest-Linux-x86_64.sh -b</pre></div>
 activate my_env  <span class="pl-c"># Windows</span></pre></div>
 
 <h3>
-<a id="step-3-using-the-matsci-channel" class="anchor" href="#step-3-using-the-matsci-channel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3: Using the matsci channel</h3>
+<a id="step-2-using-the-matsci-channel" class="anchor" href="#step-2-using-the-matsci-channel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2: Using the matsci channel</h3>
 
 <p>You can now install materials science software packages in materials.sh via the following command:</p>
 
