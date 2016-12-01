@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -23,4 +23,9 @@ requirements:
 about:
   home: https://github.com/msg-byu/enumlib
   license: MIT
-  summary: Enumlib of Gus Hart
+  summary: Enumeration library for generating derivative structures.
+  description: |
+    This code generates the derivative superstructures of a parent lattice. 
+    It works for general lattices, including "multilattices," like HCP, which 
+    have more than one lattice point in the unit cell. The code can enumerate 
+    over all concentrations or in a restricted concentration range.
