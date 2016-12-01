@@ -25,3 +25,8 @@ about:
   home: http://theory.cm.utexas.edu/henkelman/code/bader
   license: MIT
   summary: Bader charge analysis library of the Henkelman group
+  description: |
+    A fast algorithm for doing Bader's analysis on a charge density grid. The 
+    program can read in charge densities in the VASP CHGCAR format, 
+    or the Gaussian CUBE format. The program outputs the total charge associated 
+    with each atom, and the zero flux surfaces defining the Bader volumes.
