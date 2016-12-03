@@ -66,17 +66,14 @@ def update_templates(ctx):
 
 
 @task
-def build_conda(ctx, pkg, nopy27=False):
+def build_conda(ctx, pkg):
     with cd(os.path.join(module_dir, "conda-skeletons")):
         print("Building %s" % pkg)
         ctx.run("conda build --user matsci %s" % pkg)
-        if not nopy27:
-            # Py27 versions
-            ctx.run("conda build --user matsci --python 2.7 %s" % pkg)
 
 @task
-def build_all(ctx, nopy27=False):
+def build_all(ctx):
     pkgs = sorted(os.listdir(os.path.join(module_dir, "conda-skeletons")))
     pkgs = [p for p in pkgs if p not in ["pybtex"]]
     for pkg in pkgs:
-        build_conda(ctx, pkg, nopy27=nopy27)
+        build_conda(ctx, pkg)

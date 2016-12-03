@@ -35,7 +35,7 @@ install:
   - pip install pip --upgrade
   - pip install -q -r requirements.txt --upgrade
 
-script: invoke build_all --nopy27
+script: invoke build_all
 
 notifications:
   email:
