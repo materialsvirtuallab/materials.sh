@@ -1,6 +1,6 @@
 {% set name = "pymatgen" %}
-{% set version = "4.5.2" %}
-{% set sha256 = "d5cf9ed832972c9c0de2cc1d3e2fff0ed71d8a8ad6f538118dd0680d933f9618" %}
+{% set version = "4.5.3" %}
+{% set md5 = "7d3393af51d36009149ae12663d8b3ba" %}
 
 package:
   name: {{ name|lower }}
@@ -9,7 +9,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  md5: {{ md5 }}
 
 build:
   skip: true  # [win and py<35]
