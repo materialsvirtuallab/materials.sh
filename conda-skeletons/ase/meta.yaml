@@ -1,0 +1,65 @@
+{% set name = "ase" %}
+{% set version = "3.12.0" %}
+{% set md5 = "adf1915e219d36421aa488fffed1457e" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  md5: {{ md5 }}
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+    - numpy
+    - matplotlib
+    - scipy
+
+test:
+  # Python imports
+  imports:
+    - ase
+    - ase.build
+    - ase.calculators
+    - ase.calculators.demon
+    - ase.calculators.siesta
+    - ase.cli
+    - ase.cluster
+    - ase.collections
+    - ase.data
+    - ase.db
+    - ase.dft
+    - ase.ga
+    - ase.geometry
+    - ase.gui
+    - ase.io
+    - ase.lattice
+    - ase.md
+    - ase.optimize
+    - ase.optimize.precon
+    - ase.optimize.test
+    - ase.spacegroup
+    - ase.transport
+    - ase.utils
+    - ase.vibrations
+    - ase.visualize
+
+about:
+  home: https://wiki.fysik.dtu.dk/ase
+  license: GNU Lesser General Public License v2 or later (LGPLv2+)
+  summary: 'Atomic Simulation Environment'
+  license_family: LGPL
+  description: |
+    ASE is an Atomic Simulation Environment written in the Python programming language with the aim of setting up,
+    steering, and analyzing atomistic simulations.
+
