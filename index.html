@@ -42,40 +42,39 @@
 <p>The packages available are constantly updated. You can check out the
 currently available packages on the <a href="https://anaconda.org/matsci">matsci
 channel on Anaconda Cloud</a>, or simply look at the conda-skeletons folder in
-this repo. The main packages available (in alphabetical order) are:</p>
+this repo. The main packages available are:</p>
 <ol>
-<li><em>ase.</em> ASE is an Atomic Simulation Environment written in the Python programming language with the aim of setting up,
-steering, and analyzing atomistic simulations.
-
-<li><em>bader.</em> A fast algorithm for doing Bader's analysis on a charge density grid. The
-program can read in charge densities in the VASP CHGCAR format,
-or the Gaussian CUBE format. The program outputs the total charge associated
-with each atom, and the zero flux surfaces defining the Bader volumes.
-
-<li><em>BoltzTraP.</em> Boltzmann Transport Properties (BoltzTraP) is a program for calculating the semi-classic
-transport coefficients. The code uses a mesh of self-consistent band energies and is
-interfaced to the WIEN2k, AB-INIT, SIESTA, VASP and QuantumEspresso programs.
-
+  <li><em>pymatgen.</em> Python Materials Genomics is a robust materials analysis code that defines
+core object representations for structures and molecules with support for many
+electronic structure codes. It is currently the core analysis code powering the
+    Materials Project (https://www.materialsproject.org).</li>
+  <li><em>pymatgen-db.</em> Pymatgen-db is a database add-on for the Python Materials Genomics (pymatgen) materials analysis library. It
+enables the creation of Materials Project-style MongoDB databases for management of materials data. A query engine
+is also provided to enable the easy translation of MongoDB docs to useful pymatgen objects for analysis purposes.
 <li><em>custodian.</em> Custodian is a simple, robust and flexible just-in-time (JIT) job management framework
 written in Python. Using custodian, you can create wrappers that perform error checking,
 job management and error recovery. It has a simple plugin framework that allows you to
 develop specific job management workflows for different applications. The current version
 of Custodian also comes with sub-packages for error handling for
-Vienna Ab Initio Simulation Package (VASP), NwChem and QChem calculations.
+Vienna Ab Initio Simulation Package (VASP), NwChem and QChem calculations.</li>
+
+<li><em>ase.</em> ASE is an Atomic Simulation Environment written in the Python programming language with the aim of setting up,
+steering, and analyzing atomistic simulations.</li>
+
+<li><em>bader.</em> A fast algorithm for doing Bader's analysis on a charge density grid. The
+program can read in charge densities in the VASP CHGCAR format,
+or the Gaussian CUBE format. The program outputs the total charge associated
+with each atom, and the zero flux surfaces defining the Bader volumes.</li>
+
+<li><em>BoltzTraP.</em> Boltzmann Transport Properties (BoltzTraP) is a program for calculating the semi-classic
+transport coefficients. The code uses a mesh of self-consistent band energies and is
+interfaced to the WIEN2k, AB-INIT, SIESTA, VASP and QuantumEspresso programs.</li>
 
 <li><em>enumlib.</em> This code generates the derivative superstructures of a parent lattice.
 It works for general lattices, including "multilattices," like HCP, which
 have more than one lattice point in the unit cell. The code can enumerate
-over all concentrations or in a restricted concentration range.
+over all concentrations or in a restricted concentration range.</li>
 
-<li><em>pymatgen.</em> Python Materials Genomics is a robust materials analysis code that defines
-core object representations for structures and molecules with support for many
-electronic structure codes. It is currently the core analysis code powering the
-Materials Project (https://www.materialsproject.org).
-
-<li><em>pymatgen-db.</em> Pymatgen-db is a database add-on for the Python Materials Genomics (pymatgen) materials analysis library. It
-enables the creation of Materials Project-style MongoDB databases for management of materials data. A query engine
-is also provided to enable the easy translation of MongoDB docs to useful pymatgen objects for analysis purposes.
 
 </ol>
 
