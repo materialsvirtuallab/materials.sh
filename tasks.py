@@ -51,6 +51,22 @@ def get_env_version(pkg):
 
 
 @task
+def generate_description(ctx):
+    with cd(os.path.join(module_dir, "conda-skeletons")):
+        for pkg in os.listdir("."):
+            with open(os.path.join(module_dir, "conda-skeletons", pkg, "meta.yaml")) as f:
+                contents = f.read()
+                from jinja2 import Template
+                t = Template(contents)
+                import yaml
+                d = yaml.load(t.render())
+                description = d["about"].get("description")
+                if description is not None:
+                    print("<li>%s<br>" % t.module.name)
+                    print("%s</li>" % description)
+
+
+@task
 def update_templates(ctx):
     with cd(os.path.join(module_dir, "conda-skeletons")):
         for pkg in os.listdir("."):
@@ -65,11 +81,13 @@ def update_templates(ctx):
                     print("Update %s from v%s to v%s" % (name, version, env_version))
 
 
+
 @task
 def build_conda(ctx, pkg):
     with cd(os.path.join(module_dir, "conda-skeletons")):
         print("Building %s" % pkg)
         ctx.run("conda build --user matsci %s" % pkg)
+
 
 @task
 def build_all(ctx):
