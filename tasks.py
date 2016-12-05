@@ -63,9 +63,9 @@ def generate_description(ctx):
                 d = yaml.load(t.render())
                 description = d["about"].get("description")
                 if description is not None:
-                    desc.append("<li><b>%s.</b> %s" % (t.module.name, description.strip()))
+                    desc.append('<li><span style="font-weight:bold">%s.</span> %s</li>' % (t.module.name, description.strip()))
     with open("description.html", "wt") as f:
-        f.write("\n\n".join(desc))
+        f.write("<ol>" + "\n".join(desc) + "</ol>")
 
 
 @task
