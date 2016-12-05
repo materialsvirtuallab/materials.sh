@@ -35,11 +35,11 @@ install:
   - pip install pip --upgrade
   - pip install -q -r requirements.txt --upgrade
 
-script: invoke build_all
+script: travis_wait source ./build_nix.sh
 
 notifications:
   email:
     recipients:
       - shyuep@gmail.com
-    on_success: always
+    on_success: change
     on_failure: always
