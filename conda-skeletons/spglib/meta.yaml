@@ -33,5 +33,8 @@ test:
 about:
   home: http://atztogo.github.io/spglib/
   license: MIT
-  summary: 'This is the spglib module.'
+  summary: 'Spglib is a library for finding and handling crystal symmetries.'
   license_family: MIT
+  description: |
+    Spglib is a library for finding and handling crystal symmetries written in C. This is the
+    Python extension version of spglib.

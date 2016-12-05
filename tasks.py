@@ -63,7 +63,7 @@ def generate_description(ctx):
                 d = yaml.load(t.render())
                 description = d["about"].get("description")
                 if description is not None:
-                    desc.append('<tr><th>%s</th><td style="text-align: left;">%s</td></tr>' % (t.module.name, description.strip()))
+                    desc.append('<tr><th style="text-align: left;">%s</th><td style="text-align: left;">%s</td></tr>' % (t.module.name, description.strip()))
     with open("description.html", "wt") as f:
         f.write("<table>" + "\n".join(desc) + "</table>")
 
