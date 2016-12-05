@@ -52,6 +52,7 @@ def get_env_version(pkg):
 
 @task
 def generate_description(ctx):
+    desc = []
     with cd(os.path.join(module_dir, "conda-skeletons")):
         for pkg in os.listdir("."):
             with open(os.path.join(module_dir, "conda-skeletons", pkg, "meta.yaml")) as f:
@@ -62,8 +63,9 @@ def generate_description(ctx):
                 d = yaml.load(t.render())
                 description = d["about"].get("description")
                 if description is not None:
-                    print("<li>%s<br>" % t.module.name)
-                    print("%s</li>" % description)
+                    desc.append("<li><b>%s.</b> %s" % (t.module.name, description.strip()))
+    with open("description.html", "wt") as f:
+        f.write("\n\n".join(desc))
 
 
 @task

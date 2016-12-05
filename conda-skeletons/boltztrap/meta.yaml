@@ -31,6 +31,4 @@ about:
   description: |
     Boltzmann Transport Properties (BoltzTraP) is a program for calculating the semi-classic 
     transport coefficients. The code uses a mesh of self-consistent band energies and is 
-    interfaced to the WIEN2k, AB-INIT, SIESTA, VASP and QuantumEspresso programs. A paper 
-    about the code has been published, which must be cited if the program is used: 
-    Madsen, G. K. H.*; Singh, D. J. Comput. Phys. Commun. 2006 175, 67
+    interfaced to the WIEN2k, AB-INIT, SIESTA, VASP and QuantumEspresso programs.
