@@ -1,5 +1,8 @@
 ## materials.sh
 
+![TravisCI Status](https://travis-ci.org/materialsvirtuallab/materials.sh.svg?branch=master)
+![Appveyor Status](https://ci.appveyor.com/api/projects/status/xt8ba7k76p19ek1r?svg=true)
+
 [materials.sh](http://materials.sh) is a community initiative to build the world's most comprehensive collection of software for materials science.
 
 The intent is to improve the accessibility of these tools to all researchers by enabling one-line installations of highly useful software packages without the need for compilation, etc. All packages are hosted on the [matsci channel on Anaconda Cloud](https://anaconda.org/matsci).
@@ -10,7 +13,7 @@ The packages available are constantly updated. You can check out the currently a
 
 ## Getting started
 
-Details instructions are available on [materials.sh](http://materials.sh). After installing conda or Anaconda, you can install materials science software packages in materials.sh via the following command:
+Detailed instructions are available on [materials.sh](http://materials.sh). After installing conda or Anaconda, you can install materials science software packages in materials.sh via the following command:
 
 ```bash
 conda install --channel matsci <package>
