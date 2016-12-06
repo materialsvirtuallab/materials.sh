@@ -37,6 +37,27 @@
 <p>The intent is to improve the accessibility of these tools to all researchers by enabling one-line installations of highly useful software packages without the need for compilation, etc. All packages are hosted on the <a href="https://anaconda.org/matsci">matsci channel on Anaconda Cloud</a>.</p>
 
 <h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting started</h2>
+
+<h3>
+<a id="step-1-install-conda" class="anchor" href="#step-1-install-conda" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1: Install conda</h3>
+
+Follow the instructions at the <a href="http://conda.pydata.org/miniconda.html">Miniconda page</a>, or we have written a simplified set of instructions <a href="conda.html">here</a>.</p>
+
+<h3>
+<a id="step-2-using-the-matsci-channel" class="anchor" href="#step-2-using-the-matsci-channel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2: Using the matsci channel</h3>
+
+<p>You can now install materials science software packages in materials.sh via the following command:</p>
+
+<div class="highlight highlight-source-shell"><pre>conda install --channel matsci <span class="pl-k">&lt;</span>package<span class="pl-k">&gt;</span></pre></div>
+
+<p>where <code>--channel matsci</code> indicates to use the matsci channel.</p>
+
+<p>If you believe you will be using the channel frequently, you can add it to the list of channels in your environment with the following command:</p>
+
+<div class="highlight highlight-source-shell"><pre>conda config --add channels matsci</pre></div>
+
+          <h2>
 <a id="available-packages" class="anchor" href="#available-packages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Available packages</h2>
 
 <p>The packages available are constantly updated. You can check out the
@@ -75,53 +96,8 @@ over all concentrations or in a restricted concentration range.</td></tr>
 </table>
 
 
-<p>This effort initially arose from the desire to make <a href="http://www.pymatgen.org">Python Materials Genomics</a> and its associated dependencies a lot easier to install for users on all platforms. So these will always be available. Please note that not all packages are available for all OSes.</p>
+<p>This effort initially arose from the desire to make <a href="http://www.pymatgen.org">Python Materials Genomics</a> and its associated dependencies a lot easier to install for users on all platforms. So these will always be available. Note that not all packages are available for all OSes. Most packages are available for Linux/OSX. Python packages supports usually both Python 2.7+ and latest Python 3.x (3.5+) on both Linux and OSX, and only latest Python 3.x for Windows.</p>
 
-<h2>
-<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting started</h2>
-
-<p>The instructions are written for Python 3. For Windows, this is the only supported platform. For other OSes, the instructions below can be trivially modified for Python 2.7.</p>
-
-<h3>
-<a id="step-1-install-conda" class="anchor" href="#step-1-install-conda" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1: Install conda</h3>
-
-<p>Download and install the version of conda for your operating system from <a href="http://conda.pydata.org/miniconda.html">http://conda.pydata.org/miniconda.html</a>.</p>
-
-<p>For Windows, <strong>make sure it is the Miniconda3 installer</strong>, and simply double-click the exe file.</p>
-
-<p>For Mac, run:</p>
-
-<div class="highlight highlight-source-shell"><pre>curl -o Miniconda3-latest-MacOSX-x86_64.sh https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-bash Miniconda3-latest-MacOSX-x86_64.sh -b</pre></div>
-
-<p>For Linux, run:</p>
-
-<div class="highlight highlight-source-shell"><pre>wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O Miniconda3-latest-Linux-x86_64.sh<span class="pl-k">;</span>
-bash Miniconda3-latest-Linux-x86_64.sh -b</pre></div>
-
-<p>Note that you may need to create a new terminal after this step in order for the environmental variables added by conda to be loaded.</p>
-
-<h3>
-<a id="step-1b-optional-create-a-conda-environment" class="anchor" href="#step-1b-optional-create-a-conda-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1b: (Optional) Create a conda environment</h3>
-
-<p>If you are working with many python packages, it is generally recommended you create a separate environment for each of your packages. For example:</p>
-
-<div class="highlight highlight-source-shell"><pre>conda create --name my_env python
-<span class="pl-c1">source</span> activate my_env  <span class="pl-c"># OSX or Linux</span>
-activate my_env  <span class="pl-c"># Windows</span></pre></div>
-
-<h3>
-<a id="step-2-using-the-matsci-channel" class="anchor" href="#step-2-using-the-matsci-channel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2: Using the matsci channel</h3>
-
-<p>You can now install materials science software packages in materials.sh via the following command:</p>
-
-<div class="highlight highlight-source-shell"><pre>conda install --channel matsci <span class="pl-k">&lt;</span>package<span class="pl-k">&gt;</span></pre></div>
-
-<p>where <code>--channel matsci</code> indicates to use the matsci channel.</p>
-
-<p>If you believe you will be using the channel frequently, you can add it to the list of channels in your environment with the following command:</p>
-
-<div class="highlight highlight-source-shell"><pre>conda config --add channels matsci</pre></div>
 
 <h2>
 <a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
