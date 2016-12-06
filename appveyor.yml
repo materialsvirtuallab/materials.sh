@@ -16,6 +16,8 @@ environment:
 install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "python --version"
+  - "conda install conda-build anaconda-client"
+  - "conda update --all --yes"
 
 build: false
 
