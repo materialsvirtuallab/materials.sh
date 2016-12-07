@@ -1,0 +1,40 @@
+{% set name = "Flask-paginate" %}
+{% set version = "0.4.5" %}
+{% set md5 = "bbc4945baa9b58606b7494ffc6ef49c7" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.zip
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
+  md5: {{ md5 }}
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+  noarch_python: True
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - flask
+
+test:
+  imports:
+    - flask_paginate
+
+about:
+  home: https://github.com/lixxu/flask-paginate
+  license: BSD License
+  summary: 'Simple paginate support for flask'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

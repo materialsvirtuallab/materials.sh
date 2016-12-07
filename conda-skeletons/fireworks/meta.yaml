@@ -1,0 +1,90 @@
+{% set name = "FireWorks" %}
+{% set version = "1.3.9" %}
+{% set md5 = "d28666526480ba4cb8528fdd0a66b717" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  md5: {{ md5 }}
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+  entry_points:
+    - lpad = fireworks.scripts.lpad_run:lpad
+    - mlaunch = fireworks.scripts.mlaunch_run:mlaunch
+    - qlaunch = fireworks.scripts.qlaunch_run:qlaunch
+    - rlaunch = fireworks.scripts.rlaunch_run:rlaunch
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - pyyaml >=3.11.0
+    - pymongo >=3.3.0
+    - jinja2 >=2.8.0
+    - six >=1.10.0
+    - monty >=0.8.1
+    - python-dateutil >=2.5.3
+    - tabulate >=0.7.5
+    - flask >=0.11.1
+    - flask-paginate >=0.4.5
+    - gunicorn >=19.6.0
+
+test:
+  # Python imports
+  imports:
+    - fireworks
+    - fireworks.core
+    - fireworks.core.tests
+    - fireworks.examples
+    - fireworks.examples.custom_firetasks
+    - fireworks.examples.custom_firetasks.hello_world
+    - fireworks.examples.custom_firetasks.merge_task
+    - fireworks.examples.tutorial_examples
+    - fireworks.features
+    - fireworks.features.tests
+    - fireworks.flask_site
+    - fireworks.queue
+    - fireworks.scripts
+    - fireworks.tests
+    - fireworks.user_objects
+    - fireworks.user_objects.dupefinders
+    - fireworks.user_objects.firetasks
+    - fireworks.user_objects.firetasks.tests
+    - fireworks.user_objects.queue_adapters
+    - fireworks.user_objects.queue_adapters.tests
+    - fireworks.utilities
+    - fireworks.utilities.tests
+    - fw_tutorials
+    - fw_tutorials.dynamic_wf
+    - fw_tutorials.firetask
+    - fw_tutorials.python
+
+  commands:
+    - lpad --help
+    - mlaunch --help
+    - qlaunch --help
+    - rlaunch --help
+
+  requires:
+    - nose
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/materialsproject/fireworks
+  license: modified BSD
+  summary: 'FireWorks workflow software'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
