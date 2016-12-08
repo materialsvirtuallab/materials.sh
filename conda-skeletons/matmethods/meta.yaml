@@ -41,9 +41,6 @@ test:
     - matmethods
     - matmethods.vasp.workflows
 
-  commands:
-    - mmwf --help
-
 about:
   home: https://github.com/hackingmaterials/MatMethods
   license: modified BSD
