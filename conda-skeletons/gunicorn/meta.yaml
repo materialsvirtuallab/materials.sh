@@ -12,7 +12,6 @@ source:
   md5: {{ md5 }}
 
 build:
-  noarch_python: True
   entry_points:
     - gunicorn=gunicorn.app.wsgiapp:run
     - gunicorn_django=gunicorn.app.djangoapp:run
