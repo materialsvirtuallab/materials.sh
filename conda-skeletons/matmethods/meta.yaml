@@ -30,7 +30,6 @@ requirements:
     - custodian
     - monty
     - paramiko
-    - unittest2
     - coverage
     - tqdm
     - six
