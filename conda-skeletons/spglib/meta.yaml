@@ -20,6 +20,7 @@ requirements:
     - python
     - setuptools
     - numpy
+    - vc9  # [win and py27]
 
   run:
     - python

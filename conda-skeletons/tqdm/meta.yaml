@@ -1,0 +1,44 @@
+{% set name = "tqdm" %}
+{% set version = "4.10.0" %}
+{% set md5 = "2ed4ecde54bf9a6a989b3197dcccd56a" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  md5: {{ md5 }}
+
+build:
+  noarch_python: True
+  script: python setup.py install
+  entry_points:
+    - tqdm=tqdm._main:main
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  imports:
+    - tqdm
+
+  commands:
+    - tqdm --help
+
+about:
+  home: https://github.com/tqdm/tqdm
+  license: Mozilla Public License 2.0 (MPL 2.0) or MIT License
+  summary: 'A Fast, Extensible Progress Meter'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
