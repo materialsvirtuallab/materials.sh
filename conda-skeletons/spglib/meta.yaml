@@ -1,6 +1,6 @@
 {% set name = "spglib" %}
-{% set version = "1.9.8.20" %}
-{% set md5 = "f33e3eff42b73d730952eba266cd01282672e0dd93b985f89eedd3af91632e4e" %}
+{% set version = "1.9.9.11" %}
+{% set md5 = "f2094726458fc4df64c9d9e3bc9e0d81" %}
 
 package:
   name: {{ name|lower }}
@@ -9,7 +9,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ md5 }}
+  md5: {{ md5 }}
 
 build:
   number: 0
