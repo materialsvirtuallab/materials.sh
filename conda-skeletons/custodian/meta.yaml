@@ -1,6 +1,6 @@
 {% set name = "custodian" %}
-{% set version = "1.0.3" %}
-{% set md5 = "2bc54f94d4c6d2aac9fd59b7f8948fd8" %}
+{% set version = "1.0.4" %}
+{% set md5 = "7b7c8a83b09477cf66ee096d808b63d6" %}
 
 package:
   name: {{ name|lower }}
