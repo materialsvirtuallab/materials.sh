@@ -1,15 +1,13 @@
 # coding: utf-8
 # Copyright (c) Materials Virtual Lab.
 
-import glob
+import hashlib
 import os
-import shutil
 import pkg_resources
-
+import requests
 from invoke import task
 
 from monty.os import cd
-from monty.serialization import loadfn, dumpfn
 
 __author__ = "Shyue Ping Ong"
 __email__ = "ongsp@ucsd.edu"
@@ -18,28 +16,45 @@ __date__ = "Sep 1, 2014"
 
 module_dir = os.path.dirname(os.path.abspath(__file__))
 
+
+def load_template(fname):
+    with open(fname) as f:
+        contents = f.read()
+        from jinja2 import Template
+        return Template(contents)
+
+
+def calc_md5(fname):
+    hash_md5 = hashlib.md5()
+    with open(fname, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
+
+
 @task
-def update_pypi(ctx, pkg):
-    with cd(os.path.join(module_dir, "conda-skeletons")):
-        meta = os.path.join(pkg, "meta.yaml")
-        noarch = False
-        if os.path.exists(meta):
-            d = loadfn(meta)
-            noarch = d.get("build", {}).get("noarch_python", False)
-            shutil.rmtree(pkg)
-        if not noarch:
-            if pkg == "pymatgen":
-                ctx.run("conda skeleton pypi --setup-options='--single-version-externally-managed --record=record.txt' %s" % pkg)
+def update_pypi(ctx, pkg, ver):
+    meta = os.path.join(module_dir, "conda-skeletons", pkg, "meta.yaml")
+    url = "https://pypi.io/packages/source/%s/%s/%s-%s.tar.gz" % (pkg[0], pkg, pkg, ver)
+    response = requests.get(url, stream=True)
+
+    with open("temp.tar.gz", "wb") as f:
+        for data in response.iter_content():
+            f.write(data)
+    md5 = calc_md5("temp.tar.gz")
+
+    lines = []
+    with open(meta) as f:
+        for l in f:
+            if l.startswith('{% set version ='):
+                lines.append('{%% set version = "%s" %%}' % ver)
+            elif l.startswith('{% set md5 ='):
+                lines.append('{%% set md5 = "%s" %%}' % md5)
             else:
-                ctx.run("conda skeleton pypi %s" % pkg)
-        else:
-            ctx.run("conda skeleton pypi --noarch-python %s" % pkg)
-        if pkg == "pymatgen":
-            d = loadfn(meta)
-            d["requirements"]["build"].append("enum34")
-            d["requirements"]["run"].append("enum34")
-            dumpfn(d, meta, default_flow_style=False)
-            ctx.run('sed -i "" "s/enum34/enum34  # [py27]/g" %s' % meta)
+                lines.append(l.rstrip("\n"))
+    with open(meta, "wt") as f:
+        f.write("\n".join(lines))
+    os.remove("temp.tar.gz")
 
 
 def get_env_version(pkg):
