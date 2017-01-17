@@ -28,8 +28,6 @@ requirements:
     - python
     - setuptools
     - numpy >=1.9
-    - tabulate
-    - monty >=0.9.6
   run:
     - python
     - numpy >=1.9
