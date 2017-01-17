@@ -28,6 +28,8 @@ requirements:
     - python
     - setuptools
     - numpy >=1.9
+    - tabulate
+    - monty >=0.9.6
   run:
     - python
     - numpy >=1.9
@@ -72,7 +74,7 @@ test:
     - pymatgen.electronic_structure
     - pymatgen.entries
     - pymatgen.io
-    - pymatgen.io.abinit
+    # - pymatgen.io.abinit
     - pymatgen.io.feff
     - pymatgen.io.lammps
     - pymatgen.io.vasp
