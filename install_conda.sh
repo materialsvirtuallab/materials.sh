@@ -23,6 +23,10 @@ conda update -q conda
 conda info -a
 conda install conda-build anaconda-client
 conda config --add channels matsci
+if [[ "$TOXENV" == "py36" ]]; then
+    conda install python==3.6 --yes
+fi
+
 if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     conda config --set anaconda_upload yes;
     python login.py;
