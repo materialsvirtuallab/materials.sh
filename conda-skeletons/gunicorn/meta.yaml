@@ -16,8 +16,8 @@ build:
     - gunicorn=gunicorn.app.wsgiapp:run
     - gunicorn_django=gunicorn.app.djangoapp:run
     - gunicorn_paster=gunicorn.app.pasterapp:run
-  number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 1
+  script: python setup.py install
 
 requirements:
   build:
