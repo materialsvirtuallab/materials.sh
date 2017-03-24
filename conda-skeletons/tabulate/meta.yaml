@@ -14,7 +14,7 @@ source:
 build:
   entry_points:
     - tabulate = tabulate:_main
-  number: 1
+  number: 2
   script: python setup.py install
 
 requirements:
