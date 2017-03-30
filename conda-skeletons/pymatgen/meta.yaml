@@ -46,8 +46,8 @@ requirements:
 
 test:
   commands:
-    - pmg --help
-    - gaussian_analyzer --help
+    # - pmg --help
+    # - gaussian_analyzer --help
   imports:
     - pymatgen
     - pymatgen.alchemy
