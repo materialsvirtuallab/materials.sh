@@ -45,7 +45,7 @@ requirements:
     - pathlib2  # [py27]
 
 test:
-  commands:
+  # commands:
     # - pmg --help
     # - gaussian_analyzer --help
   imports:
