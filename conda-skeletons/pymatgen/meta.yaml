@@ -1,6 +1,6 @@
 {% set name = "pymatgen" %}
-{% set version = "4.7.2" %}
-{% set md5 = "9c3a6e8608671c216e4ef89778646fd6" %}
+{% set version = "4.7.3" %}
+{% set md5 = "b2af00970ad71d901b43358125c770bd" %}
 
 package:
   name: {{ name|lower }}
@@ -36,6 +36,7 @@ requirements:
     - pyyaml >=3.11
     - monty >=0.9.6
     - scipy >=0.14
+    - sympy >=1.0.0
     - pydispatcher >=2.0.5
     - tabulate
     - spglib >=1.9.8.7
