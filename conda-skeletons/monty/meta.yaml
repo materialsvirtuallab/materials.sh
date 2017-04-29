@@ -1,6 +1,6 @@
 {% set name = "monty" %}
 {% set version = "0.9.6" %}
-{% set sha256 = "bbf05646c4e86731c2398a57b1044add7487fc4ad03122578599ddd9a8892780" %}
+{% set md5 = "79808e9a3c50976764111fc4ebf45734" %}
 
 package:
   name: {{ name|lower }}
@@ -9,7 +9,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  md5: {{ md5 }}
 
 build:
   number: 2
