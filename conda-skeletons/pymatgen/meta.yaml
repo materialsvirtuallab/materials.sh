@@ -35,7 +35,7 @@ requirements:
     - six
     - requests
     - ruamel_yaml >=0.11.0
-    - monty >=1.0.1
+    - monty >=1.0.0
     - scipy >=0.14
     - sympy >=1.0.0
     - pydispatcher >=2.0.5
