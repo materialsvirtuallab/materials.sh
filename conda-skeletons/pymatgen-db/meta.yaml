@@ -19,13 +19,11 @@ requirements:
   build:
     - python
     - setuptools
-    - pymatgen >=4.4.1
-    - monty >=0.9.6
-    - smoqe
 
   run:
     - python
-    - pymatgen >=4.4.1
+    - numpy >=1.13
+    - pymatgen >=2017.7.4
     - monty >=0.9.6
     - pymongo >=2.8
     - smoqe

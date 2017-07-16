@@ -103,7 +103,7 @@ def update_templates(ctx):
 def build_conda(ctx, pkg):
     with cd(os.path.join(module_dir, "conda-skeletons")):
         print("Building %s" % pkg)
-        ctx.run("conda build --user matsci %s" % pkg)
+        ctx.run("conda build --skip-existing --user matsci %s" % pkg)
 
 
 @task
