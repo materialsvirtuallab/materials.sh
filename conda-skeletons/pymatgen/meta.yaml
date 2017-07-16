@@ -33,7 +33,7 @@ requirements:
     - numpy >=1.9
     - six
     - requests
-    - ruamel.yaml >=0.15.0
+    - ruamel_yaml >=0.11.0
     - monty >=0.9.6
     - scipy >=0.14
     - sympy >=1.0.0
