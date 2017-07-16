@@ -23,6 +23,7 @@ conda update -q conda
 conda info -a
 conda install conda-build anaconda-client
 conda config --add channels matsci
+conda config --add channels conda-forge
 if [[ "$TOXENV" == "py36" ]]; then
     conda install python==3.6 --yes
 fi

@@ -28,13 +28,13 @@ requirements:
     - python
     - setuptools
     - numpy >=1.9
-    - ruamel_yaml >=0.11.0
+    - ruamel.yaml >=0.15.0
   run:
     - python
     - numpy >=1.9
     - six
     - requests
-    - ruamel_yaml >=0.11.0
+    - ruamel.yaml >=0.15.0
     - monty >=1.0.0
     - scipy >=0.14
     - sympy >=1.0.0
