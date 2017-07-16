@@ -18,6 +18,7 @@ install:
   - "python --version"
   - "conda install --yes conda-build anaconda-client"
   - "conda config --add channels matsci"
+  - "conda config --add channels conda-forge"
   - "conda update --all --yes"
 
 build: false
