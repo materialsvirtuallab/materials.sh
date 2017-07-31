@@ -1,0 +1,69 @@
+{% set name = "atomate" %}
+{% set version = "0.5.6" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "d37bbf91cde8219a2fbea85c72cff1a714c2fd04da193165e07140cd7cdacdc0" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - fireworks >=1.4.0
+    - pymatgen >=2017.7.4
+    - custodian >=1.1.0
+    - pymatgen-db >=0.5.1
+    - monty >=0.9.5
+    - tqdm >=4.7.4
+    - six
+    - pymatgen-diffusion >=0.3.0
+
+test:
+  imports:
+    - atomate
+    - atomate.common
+    - atomate.common.firetasks
+    - atomate.feff
+    - atomate.feff.firetasks
+    - atomate.feff.fireworks
+    - atomate.feff.workflows
+    - atomate.lammps
+    - atomate.lammps.firetasks
+    - atomate.lammps.workflows
+    - atomate.utils
+    - atomate.vasp
+    - atomate.vasp.analysis
+    - atomate.vasp.builders
+    - atomate.vasp.examples
+    - atomate.vasp.firetasks
+    - atomate.vasp.fireworks
+    - atomate.vasp.workflows
+    - atomate.vasp.workflows.base
+    - atomate.vasp.workflows.presets
+  requires:
+    - nose
+
+about:
+  home: https://github.com/hackingmaterials/atomate
+  license: modified BSD
+  license_family: BSD
+  license_file: ''
+  summary: atomate has implementations of FireWorks workflows for Materials Science
+  description: 'atomate is a powerful software for computational materials science and contains pre-built workflows.'
+  doc_url: 'https://hackingmaterials.lbl.gov/atomate/'
+
+extra:
+  recipe-maintainers: ''
