@@ -1,6 +1,6 @@
 {% set name = "pymatgen-diffusion" %}
-{% set version = "0.2.0" %}
-{% set md5 = "64a1f2f5e8852ae8a170968643a55fd7" %}
+{% set version = "0.3.0" %}
+{% set md5 = "40aa8ff8bc31f3e39767d5b54a60a2e8" %}
 
 package:
   name: {{ name|lower }}
