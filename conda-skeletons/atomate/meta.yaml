@@ -1,7 +1,6 @@
 {% set name = "atomate" %}
 {% set version = "0.5.7" %}
-{% set hash_type = "md5" %}
-{% set hash_value = "1cce848f0d2d1e3c0cfe9371e012a513" %}
+{% set md5 = "1cce848f0d2d1e3c0cfe9371e012a513" %}
 
 package:
   name: '{{ name|lower }}'
