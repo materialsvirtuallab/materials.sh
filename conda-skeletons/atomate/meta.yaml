@@ -1,5 +1,5 @@
 {% set name = "atomate" %}
-{% set version = "0.5.6" %}
+{% set version = "0.5.7" %}
 {% set hash_type = "sha256" %}
 {% set hash_value = "d37bbf91cde8219a2fbea85c72cff1a714c2fd04da193165e07140cd7cdacdc0" %}
 
