@@ -56,13 +56,13 @@ test:
     - nose
 
 about:
-  home: https://hackingmaterials.lbl.gov/atomate
+  home: https://hackingmaterials.github.io/atomate
   license: modified BSD
   license_family: BSD
   license_file: LICENSE
   summary: atomate has implementations of FireWorks workflows for Materials Science
   description: 'atomate is a powerful software for computational materials science and contains pre-built workflows.'
-  doc_url: https://hackingmaterials.lbl.gov/atomate/
+  doc_url: https://hackingmaterials.github.io/atomate
   dev_url: https://github.com/hackingmaterials/atomate  
 
 extra:
