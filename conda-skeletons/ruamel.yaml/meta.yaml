@@ -1,0 +1,40 @@
+{% set name = "ruamel.yaml" %}
+{% set version = "0.15.25" %}
+{% set md5 = "dd87cf9c6a2616b73acd2131f7bb5073" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  md5: {{ md5 }}
+
+build:
+  number: 0
+  script: pip install .
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - ruamel.yaml
+
+about:
+  home: https://github.com/materialsvirtuallab/monty
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: 'ruamel.yaml'
+  description: |
+    ruamel.yaml is a YAML 1.2 loader/dumper package for Python.
+
+extra:
+  recipe-maintainers:
+    - shyuep
