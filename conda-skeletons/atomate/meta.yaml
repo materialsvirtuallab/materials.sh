@@ -41,12 +41,12 @@ test:
     - atomate.feff.workflows
     - atomate.lammps
     - atomate.lammps.firetasks
+    - atomate.lammps.fireworks    
     - atomate.lammps.workflows
     - atomate.utils
     - atomate.vasp
     - atomate.vasp.analysis
     - atomate.vasp.builders
-    - atomate.vasp.examples
     - atomate.vasp.firetasks
     - atomate.vasp.fireworks
     - atomate.vasp.workflows
