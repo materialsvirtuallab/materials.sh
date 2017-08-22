@@ -1,6 +1,6 @@
 {% set name = "atomate" %}
-{% set version = "0.5.8" %}
-{% set md5 = "c33a25710f6e7b3972bd8e6252767868" %}
+{% set version = "0.6.0" %}
+{% set md5 = "008bd60853ba099001f7257e94f1c0c3" %}
 
 package:
   name: '{{ name|lower }}'
@@ -22,7 +22,7 @@ requirements:
   run:
     - python
     - fireworks >=1.4.0
-    - pymatgen >=2017.8.4
+    - pymatgen >=2017.8.16
     - custodian >=1.1.0
     - pymatgen-db >=0.5.1
     - monty >=0.9.5
