@@ -1,6 +1,6 @@
 {% set name = "pymatgen" %}
-{% set version = "2017.12.6" %}
-{% set md5 = "57fb6fbe534eb9fb40229dbe53ad9009" %}
+{% set version = "2017.12.8" %}
+{% set md5 = "6df0b177e065901de14a0a52618f2ed8" %}
 
 package:
   name: {{ name|lower }}
@@ -32,6 +32,7 @@ requirements:
   run:
     - python
     - setuptools
+    - pandas
     - numpy >=1.9
     - six
     - requests
@@ -45,7 +46,6 @@ requirements:
     - matplotlib >=1.5
     - palettable >=2.1.1
     - enum34  # [py27]
-    - pathlib2  # [py27]
 
 test:
   # commands:
