@@ -1,6 +1,6 @@
 {% set name = "pymatgen" %}
-{% set version = "2017.12.8" %}
-{% set md5 = "6df0b177e065901de14a0a52618f2ed8" %}
+{% set version = "2017.12.15" %}
+{% set md5 = "f9011fc3d74d365f17af793348db1cf7" %}
 
 package:
   name: {{ name|lower }}
@@ -79,11 +79,10 @@ test:
     - pymatgen.io.feff
     - pymatgen.io.lammps
     - pymatgen.io.vasp
-    - pymatgen.matproj
+    - pymatgen.ext.matproj
+    - pymatgen.ext.cod
     - pymatgen.optimization
-    - pymatgen.phasediagram
-    - pymatgen.serializers
-    - pymatgen.structure_prediction
+    - pymatgen.analysis.structure_prediction
     - pymatgen.symmetry
     - pymatgen.transformations
     - pymatgen.util
