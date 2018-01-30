@@ -5,5 +5,7 @@ conda build --skip-existing --user matsci monty
 conda update --all --yes
 for pkg in `ls -d *`
 do
-    conda build --skip-existing --user matsci $pkg
+    if [ "$pkg" != "atomate" ]; then
+        conda build --skip-existing --user matsci $pkg
+    done
 done
