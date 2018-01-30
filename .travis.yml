@@ -31,7 +31,7 @@ install:
   - pip install pip --upgrade
   - pip install -q -r requirements.txt --upgrade
 
-script: travis_wait 100 source ./build_nix.sh
+script: travis_wait 1000 source ./build_nix.sh
 
 notifications:
   email:
