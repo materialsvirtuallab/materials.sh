@@ -9,6 +9,7 @@ do
         conda build --skip-existing --user matsci $pkg
     fi
 done
+for pkg in `ls -d *`
 do
     if [ "$pkg" != "atomate" ]; then
         conda build --skip-existing --user matsci --python 2.7 $pkg
