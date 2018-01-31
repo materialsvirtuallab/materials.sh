@@ -10,12 +10,9 @@ matrix:
       sudo: required
       python: 3.6
       env: TOXENV=py36
-    #    - os: osx
-    #  language: generic
-    #  env: TOXENV=py27
-    #- os: osx
-    #  language: generic
-    #  env: TOXENV=py36
+    - os: osx
+      language: generic
+      env: TOXENV=py36
 
 sudo: required
 
