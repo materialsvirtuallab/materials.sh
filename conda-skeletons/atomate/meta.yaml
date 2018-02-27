@@ -1,6 +1,6 @@
 {% set name = "atomate" %}
-{% set version = "0.6.9" %}
-{% set md5 = "5fa406195071e602e171da8cf9158d46" %}
+{% set version = "0.7.2" %}
+{% set md5 = "f8ba5b1e244d1d866157ac60a4fa7670" %}
 
 package:
   name: '{{ name|lower }}'
@@ -21,14 +21,13 @@ requirements:
     - setuptools
   run:
     - python
-    - fireworks >=1.4.0
-    - pymatgen >=2017.8.16
-    - custodian >=1.1.0
-    - pymatgen-db >=0.5.1
-    - monty >=0.9.5
-    - tqdm >=4.7.4
+    - fireworks >=1.6.8
+    - pymatgen >=2018.2.13
+    - pymatgen-diffusion >=2018.1.4
+    - custodian >=2017.12.23
+    - paramiko >=2.1.2
     - six
-    - pymatgen-diffusion >=0.3.0
+    - pybtex >=0.21
 
 test:
   imports:
