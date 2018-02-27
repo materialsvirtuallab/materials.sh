@@ -1,6 +1,6 @@
 {% set name = "pymatgen-db" %}
-{% set version = "0.6.5" %}
-{% set md5 = "93671fddedd8c0aebd73c0bf3d2e7365" %}
+{% set version = "2018.2.21" %}
+{% set md5 = "95d4e7383128fc8019c0d72b00ce198b" %}
 
 package:
   name: {{ name|lower }}
@@ -19,14 +19,15 @@ requirements:
   build:
     - python
     - setuptools
+    - numpy
 
   run:
     - python
-    - numpy >=1.13
-    - pymatgen >=2017.7.4
-    - monty >=0.9.6
-    - pymongo >=2.8
+    - pymatgen >=2018.2.13
+    - monty >=1.0.2
+    - pymongo >=2.8.0
     - smoqe
+    - pybtex >=0.21
     - enum34  # [py27]
 
 test:
