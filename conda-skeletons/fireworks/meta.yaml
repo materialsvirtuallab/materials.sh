@@ -1,6 +1,6 @@
 {% set name = "FireWorks" %}
-{% set version = "1.4.8" %}
-{% set md5 = "6eb467fa3d2164bd8c247775259da365" %}
+{% set version = "1.6.8" %}
+{% set md5 = "6a51e6c6901a4998e0ca80f0bd7bdd9a" %}
 
 package:
   name: {{ name|lower }}
@@ -36,6 +36,7 @@ requirements:
     - flask >=0.11.1
     - flask-paginate >=0.4.5
     - gunicorn >=19.6.0
+    - tqdm >=4.19.5
 
 test:
   # Python imports

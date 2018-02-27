@@ -1,6 +1,6 @@
 {% set name = "pymatgen-diffusion" %}
-{% set version = "0.3.0" %}
-{% set md5 = "40aa8ff8bc31f3e39767d5b54a60a2e8" %}
+{% set version = "2018.1.4" %}
+{% set md5 = "7a654541592e0dd27a264ac64fa51e79" %}
 
 package:
   name: {{ name|lower }}
@@ -21,8 +21,8 @@ requirements:
     - setuptools
   run:
     - python
-    - pymatgen >=4.4.11
-    - monty >=0.9.6
+    - pymatgen >=2018.2.13
+    - monty >=1.0.2
 
 test:
   imports:
