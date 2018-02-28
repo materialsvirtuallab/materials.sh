@@ -1,13 +1,13 @@
 version: 2
 jobs:
   linux_build:
-    working_directory: ~/pymatgen
     docker:
         - image: circleci/python:3.6.4
     steps:
       - run:
           command: |
-            source install_conda.sh
+            ls
+            source ./install_conda.sh
             source ./build_nix.sh
           no_output_timeout: 3600
   osx_build:
