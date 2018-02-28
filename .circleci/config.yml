@@ -8,23 +8,23 @@ jobs:
       - run:
           command: |
             ls
-            source ./install_conda.sh
-            source ./build_nix.sh
+#            source ./install_conda.sh
+#            source ./build_nix.sh
           no_output_timeout: 3600
-  osx_build:
-    working_directory: ~/materials.sh
-    macos:
-      xcode: "9.0"
-    steps:
-      - run:
-          command: |
-            source install_conda.sh
-            source ./build_nix.sh
-          no_output_timeout: 3600
+#  osx_build:
+#    working_directory: ~/materials.sh
+#    macos:
+#      xcode: "9.0"
+#    steps:
+#      - run:
+#          command: |
+#            source install_conda.sh
+#            source ./build_nix.sh
+#          no_output_timeout: 3600
 
 workflows:
   version: 2
   build_and_test:
     jobs:
       - linux_build
-      - osx_build
+#      - osx_build
