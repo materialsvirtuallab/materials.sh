@@ -1,6 +1,7 @@
 version: 2
 jobs:
   linux_build:
+    working_directory: ~/materials.sh
     docker:
         - image: circleci/python:3.6.4
     steps:
@@ -11,6 +12,7 @@ jobs:
             source ./build_nix.sh
           no_output_timeout: 3600
   osx_build:
+    working_directory: ~/materials.sh
     macos:
       xcode: "9.0"
     steps:
