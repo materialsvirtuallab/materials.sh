@@ -1,6 +1,6 @@
 {% set name = "gunicorn" %}
-{% set version = "19.6.0" %}
-{% set md5 = "338e5e8a83ea0f0625f768dba4597530" %}
+{% set version = "19.7.1" %}
+{% set md5 = "174d3c3cd670a5be0404d84c484e590c" %}
 
 package:
   name: {{ name|lower }}
