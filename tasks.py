@@ -33,7 +33,16 @@ def calc_md5(fname):
 
 
 @task
-def update_pypi(ctx, pkg, ver):
+def update_pypi(ctx, pkg):
+
+    import requests
+    r = requests.get("http://pypi.org/project/%s/" % pkg)
+    html_doc = r.text
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html_doc, 'html.parser')
+    header = soup.h1.text
+    ver = header.strip().split()[-1]
+    
     meta = os.path.join(module_dir, "conda-skeletons", pkg, "meta.yaml")
     url = "https://pypi.io/packages/source/%s/%s/%s-%s.tar.gz" % (pkg[0], pkg, pkg, ver)
     response = requests.get(url, stream=True)
