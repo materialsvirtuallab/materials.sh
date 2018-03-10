@@ -34,13 +34,10 @@ test:
     - gunicorn.app
     - gunicorn.http
     - gunicorn.instrument
-    - gunicorn.management
-    - gunicorn.management.commands
     - gunicorn.workers
 
   commands:
     - gunicorn --help
-    - gunicorn_django --help
 
 about:
   home: http://gunicorn.org
