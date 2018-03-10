@@ -116,6 +116,6 @@ def build_conda(ctx, pkg):
 @task
 def build_all(ctx):
     pkgs = sorted(os.listdir(os.path.join(module_dir, "conda-skeletons")))
-    pkgs = [p for p in pkgs if p not in ["pybtex"]]
+    pkgs = [p for p in pkgs if p.lower() not in ["pybtex", "bader", "boltztrap"]]
     for pkg in pkgs:
         build_conda(ctx, pkg)
