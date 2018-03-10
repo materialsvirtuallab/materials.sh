@@ -35,7 +35,6 @@ def calc_md5(fname):
 @task
 def update_pypi(ctx, pkg):
 
-    import requests
     r = requests.get("http://pypi.org/project/%s/" % pkg)
     html_doc = r.text
     from bs4 import BeautifulSoup
@@ -51,19 +50,27 @@ def update_pypi(ctx, pkg):
         for data in response.iter_content():
             f.write(data)
     md5 = calc_md5("temp.tar.gz")
+    os.remove("temp.tar.gz")
 
     lines = []
+    current_ver = None
     with open(meta) as f:
         for l in f:
             if l.startswith('{% set version ='):
+                current_ver = l.strip().split("=")[-1]
+                current_ver = current_ver.split("%")[0].strip().strip("\"")
                 lines.append('{%% set version = "%s" %%}' % ver)
-            elif l.startswith('{% set md5 ='):
+            elif l.startswith('{% set md5 =') and current_ver != ver and current_ver != "different":
                 lines.append('{%% set md5 = "%s" %%}' % md5)
             else:
                 lines.append(l.rstrip("\n"))
-    with open(meta, "wt") as f:
-        f.write("\n".join(lines))
-    os.remove("temp.tar.gz")
+
+    if current_ver != ver:
+        print("Updated %s from %s to %s!" % (pkg, current_ver, ver))
+        with open(meta, "wt") as f:
+            f.write("\n".join(lines))
+    else:
+        print("%s current version (%s) is up to date!" % (pkg, ver))
 
 
 def get_env_version(pkg):
@@ -96,16 +103,7 @@ def generate_description(ctx):
 def update_templates(ctx):
     with cd(os.path.join(module_dir, "conda-skeletons")):
         for pkg in os.listdir("."):
-            with open(os.path.join(module_dir, "conda-skeletons", pkg, "meta.yaml")) as f:
-                contents = f.read()
-                from jinja2 import Template
-                t = Template(contents)
-                name = t.module.name
-                version = t.module.version
-                env_version = get_env_version(name)
-                if version != env_version:
-                    print("Update %s from v%s to v%s" % (name, version, env_version))
-
+            update_pypi(ctx, pkg)
 
 
 @task
