@@ -65,7 +65,7 @@ def update_pypi(ctx, pkg):
             else:
                 lines.append(l.rstrip("\n"))
 
-    if current_ver != ver:
+    if current_ver != ver and ver != "different":
         print("Updated %s from %s to %s!" % (pkg, current_ver, ver))
         with open(meta, "wt") as f:
             f.write("\n".join(lines))
