@@ -60,7 +60,7 @@ def update_pypi(ctx, pkg):
                 current_ver = l.strip().split("=")[-1]
                 current_ver = current_ver.split("%")[0].strip().strip("\"")
                 lines.append('{%% set version = "%s" %%}' % ver)
-            elif l.startswith('{% set md5 =') and current_ver != ver and current_ver != "different":
+            elif l.startswith('{% set md5 =') and current_ver != ver and ver != "different":
                 lines.append('{%% set md5 = "%s" %%}' % md5)
             else:
                 lines.append(l.rstrip("\n"))
