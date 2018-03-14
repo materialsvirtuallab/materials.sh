@@ -11,7 +11,6 @@ from monty.os import cd
 
 __author__ = "Shyue Ping Ong"
 __email__ = "ongsp@ucsd.edu"
-__date__ = "Aug 8, 2017"
 
 
 module_dir = os.path.dirname(os.path.abspath(__file__))
