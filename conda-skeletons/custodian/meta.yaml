@@ -1,6 +1,6 @@
 {% set name = "custodian" %}
-{% set version = "1.1.0" %}
-{% set md5 = "823579700fcb6add05dd580e0e437852" %}
+{% set version = "2018.3.10" %}
+{% set md5 = "72cbcbbf75dc44e91d4af8db922f6743" %}
 
 package:
   name: {{ name|lower }}
@@ -27,9 +27,9 @@ requirements:
     - setuptools
   run:
     - python
-    - monty >=0.9.0
+    - monty >=1.0.2
     - six
-    - pyyaml >=3.12
+    - ruamel.yaml >=0.15.35
 
 test:
   imports:

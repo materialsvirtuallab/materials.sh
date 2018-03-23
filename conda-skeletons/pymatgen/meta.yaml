@@ -1,6 +1,6 @@
 {% set name = "pymatgen" %}
-{% set version = "2018.2.13" %}
-{% set md5 = "d91dd5e27d52ff29ac046358d31ae449" %}
+{% set version = "2018.3.22" %}
+{% set md5 = "6f5ab2c6a20106c9bf12b28f97062283" %}
 
 package:
   name: {{ name|lower }}
@@ -28,7 +28,7 @@ requirements:
     - python
     - setuptools
     - numpy >=1.9
-    - ruamel.yaml >=0.15.0
+    - ruamel.yaml >=0.15.35
   run:
     - python
     - setuptools
@@ -36,15 +36,15 @@ requirements:
     - numpy >=1.9
     - six
     - requests
-    - ruamel.yaml >=0.15.0
-    - monty >=1.0.0
-    - scipy >=0.14
+    - ruamel.yaml >=0.15.35
+    - monty >=1.0.2
+    - scipy >=1.0.0
     - sympy >=1.0.0
     - pydispatcher >=2.0.5
     - tabulate
-    - spglib >=1.9.8.7
-    - matplotlib >=1.5
-    - palettable >=2.1.1
+    - spglib >=1.10.3.39
+    - matplotlib >=2.1.2
+    - palettable >=3.1.0
     - enum34  # [py27]
 
 test:
