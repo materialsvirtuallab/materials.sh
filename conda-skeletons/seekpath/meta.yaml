@@ -1,6 +1,6 @@
 {% set name = "seekpath" %}
-{% set version = "1.1.0" %}
-{% set md5 = "6dba94cba2313c6e17fdb9f6b8a1fad3" %}
+{% set version = "1.8.1" %}
+{% set md5 = "ad6d3908fe04591e205adfa40d033c65" %}
 
 package:
   name: {{ name|lower }}

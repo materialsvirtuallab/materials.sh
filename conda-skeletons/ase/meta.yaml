@@ -1,6 +1,6 @@
 {% set name = "ase" %}
-{% set version = "3.12.0" %}
-{% set md5 = "adf1915e219d36421aa488fffed1457e" %}
+{% set version = "3.15.0" %}
+{% set md5 = "65a0143753517c2df157e53bd29a18e3" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 
 build:
   number: 0
-  script: python setup.py install
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
@@ -24,6 +24,7 @@ requirements:
     - numpy
     - matplotlib
     - scipy
+    - flask
 
 test:
   # Python imports
@@ -62,4 +63,3 @@ about:
   description: |
     ASE is an Atomic Simulation Environment written in the Python programming language with the aim of setting up,
     steering, and analyzing atomistic simulations.
-
