@@ -7,19 +7,19 @@ jobs:
     steps:
       - checkout
       - run:
-        command: |
-          export PATH="$HOME/miniconda3/bin:$PATH"
-          conda --version
-          conda config --set always_yes yes --set changeps1 no
-          conda update -q conda
-          conda install conda-build anaconda-client
-          conda config --add channels matsci
-          conda install python==3.6 --yes
-          conda config --set anaconda_upload yes
-          conda update --all --yes
-          python login.py
-          source build_nix.sh
-        no_output_timeout: 3600
+          command: |
+            export PATH="$HOME/miniconda3/bin:$PATH"
+            conda --version
+            conda config --set always_yes yes --set changeps1 no
+            conda update -q conda
+            conda install conda-build anaconda-client
+            conda config --add channels matsci
+            conda install python==3.6 --yes
+            conda config --set anaconda_upload yes
+            conda update --all --yes
+            python login.py
+            source build_nix.sh
+          no_output_timeout: 3600
       - store_artifacts:
           path: coverage_reports/
           destination: tr1
