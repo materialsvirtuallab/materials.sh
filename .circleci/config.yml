@@ -9,6 +9,7 @@ jobs:
       - run:
           command: |
             export PATH="$HOME/miniconda/bin:$PATH"
+            conda --version
             conda config --set always_yes yes --set changeps1 no
             conda update -q conda
             conda install conda-build anaconda-client
