@@ -8,6 +8,7 @@ jobs:
       - checkout
       - run:
           command: |
+            export PATH="$HOME/miniconda/bin:$PATH"
             conda config --set always_yes yes --set changeps1 no
             conda update -q conda
             conda install conda-build anaconda-client
