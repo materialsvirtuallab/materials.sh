@@ -1,30 +1,31 @@
 version: 2
 jobs:
-  linux_build:
+  py3test:
     working_directory: ~/materials.sh
     docker:
-        - image: circleci/python:3.6.4
+        - image: materialsvirtuallab/circle-ci-pmg-py3:0.0.2
     steps:
       - checkout
       - run:
           command: |
-            source ./install_conda.sh
-            source ./build_nix.sh
+            conda config --set always_yes yes --set changeps1 no
+            conda update -q conda
+            conda install conda-build anaconda-client
+            conda config --add channels matsci
+            conda config --add channels conda-forge
+            conda install python==3.6 --yes
+            conda config --set anaconda_upload yes
+            python login.py
+            source build_nix.sh
           no_output_timeout: 3600
-#  osx_build:
-#    working_directory: ~/materials.sh
-#    macos:
-#      xcode: "9.0"
-#    steps:
-#      - run:
-#          command: |
-#            source install_conda.sh
-#            source ./build_nix.sh
-#          no_output_timeout: 3600
+      - store_artifacts:
+          path: coverage_reports/
+          destination: tr1
+      - store_test_results:
+          path: coverage_reports/
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - linux_build
-#      - osx_build
+      - py3test
