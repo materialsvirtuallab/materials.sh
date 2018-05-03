@@ -1,6 +1,6 @@
 {% set name = "FireWorks" %}
-{% set version = "1.6.8" %}
-{% set md5 = "6a51e6c6901a4998e0ca80f0bd7bdd9a" %}
+{% set version = "1.7.2" %}
+{% set md5 = "d41d8cd98f00b204e9800998ecf8427e" %}
 
 package:
   name: {{ name|lower }}

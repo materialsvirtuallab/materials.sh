@@ -1,6 +1,6 @@
 {% set name = "ase" %}
-{% set version = "3.15.0" %}
-{% set md5 = "65a0143753517c2df157e53bd29a18e3" %}
+{% set version = "3.16.0" %}
+{% set md5 = "bf3a4fcd3dfc9ab2b9eb0e3f4e5443f5" %}
 
 package:
   name: {{ name|lower }}
