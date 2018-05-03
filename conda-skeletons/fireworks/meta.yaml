@@ -37,6 +37,7 @@ requirements:
     - flask-paginate >=0.4.5
     - gunicorn >=19.6.0
     - tqdm >=4.19.5
+    - ruamel.yaml
 
 test:
   # Python imports
