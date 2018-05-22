@@ -1,6 +1,6 @@
 {% set name = "pymatgen" %}
-{% set version = "2018.5.14" %}
-{% set md5 = "6a9a9bfab04bd5cec5fd24ca8cdb3854" %}
+{% set version = "2018.5.22" %}
+{% set md5 = "b10e1c53f6740d1f263605689b1f4fe0" %}
 
 package:
   name: {{ name|lower }}
@@ -61,7 +61,7 @@ test:
     - pymatgen.analysis.chemenv.coordination_environments.strategy_files
     - pymatgen.analysis.chemenv.utils
     - pymatgen.analysis.cost
-    - pymatgen.analysis.defects
+    # - pymatgen.analysis.defects
     - pymatgen.analysis.diffraction
     - pymatgen.analysis.elasticity
     - pymatgen.analysis.hhi
