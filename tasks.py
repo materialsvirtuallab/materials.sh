@@ -110,7 +110,7 @@ def build_conda(ctx, pkg):
     with cd(os.path.join(module_dir, "conda-skeletons")):
         print("Building %s" % pkg)
         ctx.run("conda build --skip-existing --user matsci %s" % pkg)
-        #ctx.run("conda build --skip-existing --user matsci --python 2.7 %s" % pkg)
+        ctx.run("conda build --skip-existing --user matsci --python 2.7 %s" % pkg)
 
 @task
 def build_all(ctx):
