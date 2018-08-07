@@ -1,6 +1,6 @@
 {% set name = "palettable" %}
-{% set version = "3.1.0" %}
-{% set md5 = "1fe822ae1379427360a2367e0cc588ba" %}
+{% set version = "3.1.1" %}
+{% set md5 = "2edfccbb47ac920cd76117a634322b0e" %}
 
 package:
   name: {{ name|lower }}
