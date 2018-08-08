@@ -5,7 +5,7 @@ branches:
 environment:
   matrix:
     - PYTHON: "C:\\Miniconda36-x64"
-      PYTHON_VERSION: "3.6"
+      PYTHON_VERSION: "3.7"
       PYTHON_ARCH: "64"
       platform: x64
       STANDALONE: "FALSE"
@@ -15,10 +15,11 @@ environment:
 
 install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - "conda update --yes python"
   - "python --version"
   - "conda install --yes conda-build anaconda-client"
   - "conda config --add channels matsci"
-  - "conda config --add channels conda-forge"
+  - "conda config --remove channels conda-forge"
   - "conda update --all --yes"
 
 build: false
