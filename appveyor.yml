@@ -9,7 +9,7 @@ environment:
       PYTHON_ARCH: "64"
       platform: x64
       STANDALONE: "FALSE"
-      CONDA_PY: "36"
+      CONDA_PY: "37"
       CONDA_BUILD: "TRUE"
       SPLIT_RUN: "FALSE"
 
