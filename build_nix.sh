@@ -1,4 +1,3 @@
-set -e
 cd conda-skeletons
 conda build --skip-existing --user matsci tabulate
 conda build --skip-existing --user matsci monty
