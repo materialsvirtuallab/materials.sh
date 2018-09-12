@@ -8,9 +8,8 @@ conda build --skip-existing --user matsci --python 2.7 ruamel.yaml
 # conda update --all --yes
 for pkg in `ls -d *`
 do
-    conda build --skip-existing --user matsci $pkg
-done
-for pkg in `ls -d *`
-do
-    conda build --skip-existing --user matsci --python 2.7 $pkg
+    if [ "$pkg" -ne "atomate"]; then
+        conda build --skip-existing --user matsci $pkg
+        conda build --skip-existing --user matsci --python 2.7 $pkg
+    fi
 done
