@@ -1,6 +1,6 @@
 {% set name = "ruamel.yaml" %}
-{% set version = "0.15.50" %}
-{% set md5 = "b326e884bc64190c1ccfd3e2a6005f9f" %}
+{% set version = "0.15.87" %}
+{% set md5 = "12dbdf70bc08abfbb6583f1df735b374" %}
 
 package:
   name: {{ name|lower }}
