@@ -18,7 +18,7 @@ install:
   - "conda update --yes python"
   - "python --version"
   - "conda install --yes anaconda-client"
-  - "conda install -n base conda-build==3.16.1 --yes"
+  - "conda install -n base conda-build==3.15 --yes"
   - "conda config --add channels matsci"
 
 build: false
