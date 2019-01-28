@@ -17,8 +17,8 @@ install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "conda update --yes python"
   - "python --version"
-  - "conda install -n base conda-build==3.16.1 --yes"
   - "conda install --yes anaconda-client"
+  - "conda install -n base conda-build==3.16.1 --yes"
   - "conda config --add channels matsci"
 
 build: false
