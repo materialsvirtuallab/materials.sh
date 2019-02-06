@@ -15,7 +15,6 @@ environment:
 
 install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - "conda init cmd.exe"
   - "conda update --yes python"
   - "python --version"
   - "conda install --yes anaconda-client"
