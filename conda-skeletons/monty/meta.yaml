@@ -1,6 +1,6 @@
 {% set name = "monty" %}
-{% set version = "1.0.5" %}
-{% set md5 = "bb2899b42aa48194905b779afc023476" %}
+{% set version = "1.0.6" %}
+{% set md5 = "79c37ac8728fe25fad68039a97eee95a" %}
 
 package:
   name: {{ name|lower }}
