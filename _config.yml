@@ -1,0 +1,8 @@
+title: materials.sh
+description: software for materials science
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-dinky
+
+gems:
+  - jekyll-mentions
