@@ -1,6 +1,6 @@
 {% set name = "pymatgen" %}
-{% set version = "2019.5.1" %}
-{% set md5 = "4aadfb9b520b29f5fcd3a76630e4ecc8" %}
+{% set version = "2019.5.8" %}
+{% set md5 = "e7301f1daa378bea98f217564f2350f3" %}
 
 package:
   name: {{ name|lower }}
