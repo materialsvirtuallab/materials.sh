@@ -1,6 +1,6 @@
 {% set name = "pyhull" %}
-{% set version = "2015.2.0" %}
-{% set md5 = "c84ce4944eda9ddce7a8ad8986a97298" %}
+{% set version = "2015.2.1" %}
+{% set md5 = "4437cae7f912c0829e504a9b22ac7626" %}
 
 package:
   name: {{ name|lower }}

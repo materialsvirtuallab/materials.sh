@@ -1,6 +1,6 @@
 {% set name = "pymatgen-db" %}
-{% set version = "2018.2.21" %}
-{% set md5 = "95d4e7383128fc8019c0d72b00ce198b" %}
+{% set version = "2019.3.28" %}
+{% set md5 = "eeeaaf0305dfe2767d4600ba33b8d1af" %}
 
 package:
   name: {{ name|lower }}
@@ -48,4 +48,3 @@ about:
     enables the creation of Materials Project-style MongoDB databases for management of materials data. A query engine
     is also provided to enable the easy translation of MongoDB docs to useful pymatgen objects for analysis purposes.
   dev_url: https://github.com/materialsproject/pymatgen-db
-

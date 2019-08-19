@@ -1,6 +1,6 @@
 {% set name = "tqdm" %}
-{% set version = "4.24.0" %}
-{% set md5 = "89e261986032db47ae215937e7f88c68" %}
+{% set version = "4.33.0" %}
+{% set md5 = "96c3f16ec7756ea2425b5e4a4fa8f0bc" %}
 
 package:
   name: {{ name|lower }}

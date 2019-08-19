@@ -1,6 +1,6 @@
 {% set name = "atomate" %}
-{% set version = "0.8.2" %}
-{% set md5 = "951f51f91991e766a80a11e5f83b166e" %}
+{% set version = "0.9.2" %}
+{% set md5 = "9e93fe840592be9683a4df2367ecbbec" %}
 
 package:
   name: '{{ name|lower }}'

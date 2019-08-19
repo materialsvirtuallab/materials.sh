@@ -1,6 +1,6 @@
 {% set name = "bader" %}
-{% set version = "0.9.5" %}
-{% set md5 = "2bc54f94d4c6d2aac9fd59b7f8948fd8" %}
+{% set version = "page" %}
+{% set md5 = "d41d8cd98f00b204e9800998ecf8427e" %}
 
 package:
   name: {{ name|lower }}

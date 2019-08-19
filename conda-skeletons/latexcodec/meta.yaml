@@ -1,6 +1,6 @@
 {% set name = "latexcodec" %}
-{% set version = "1.0.5" %}
-{% set md5 = "d61c2651deb64505918d8c643172559d" %}
+{% set version = "1.0.7" %}
+{% set md5 = "3435d821c777c63b26b424d5f67e5418" %}
 
 package:
   name: {{ name|lower }}

@@ -1,6 +1,6 @@
 {% set name = "flask-paginate" %}
-{% set version = "0.5.1" %}
-{% set md5 = "83bdaa64c75df75296abb5a4f7edfa14" %}
+{% set version = "0.5.3" %}
+{% set md5 = "b6b99fe6cb8dabf44eaf3a490f53f2d5" %}
 
 package:
   name: {{ name|lower }}

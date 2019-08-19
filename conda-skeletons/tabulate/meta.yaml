@@ -1,6 +1,6 @@
 {% set name = "tabulate" %}
-{% set version = "0.8.2" %}
-{% set md5 = "9bbaa53754356d837343740fdc70c074" %}
+{% set version = "0.8.3" %}
+{% set md5 = "3170f72eb9da8ab345cf442de32015bf" %}
 
 package:
   name: {{ name|lower }}

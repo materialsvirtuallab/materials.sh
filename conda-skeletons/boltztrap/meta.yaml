@@ -1,6 +1,6 @@
 {% set name = "BoltzTraP" %}
-{% set version = "1.2.5" %}
-{% set md5 = "6623d4393bce2e178b073f75f283eee6" %}
+{% set version = "page" %}
+{% set md5 = "d41d8cd98f00b204e9800998ecf8427e" %}
 
 package:
   name: {{ name|lower }}
